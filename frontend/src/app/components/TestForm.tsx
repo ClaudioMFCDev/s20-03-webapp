@@ -1,4 +1,5 @@
 "use client";
+// Este componente solo existe para probar ReactHookForm; por favor, eliminarlo
 
 import { useForm } from "react-hook-form";
 
