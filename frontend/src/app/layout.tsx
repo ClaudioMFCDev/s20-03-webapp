@@ -3,7 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Geist } from 'next/font/google'
 
-import { Providers } from '#/src/app/components/providers'
+import { Providers } from '@/components/providers'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -12,13 +12,19 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Nombre',
-    default: 'Nombre',
+    template: '%s | ClassRun',
+    default: 'ClassRun',
   },
-  authors: [{ name: '(Redu) Eduardo R.', url: 'https://github.com/MrRedu' }],
+  authors: [
+    { name: '(Redu) Eduardo R.', url: 'https://github.com/MrRedu' },
+    { name: '(Azza) Azariel M..', url: 'https://github.com/AzzADesigns' },
+    { name: '(Dimaro) Juan S.', url: 'https://github.com/JuanSincich' },
+    { name: '(Claudio) Claudio M.', url: 'https://github.com/ClaudioMFCDev' },
+    { name: '(Nelson) Gabriel H.', url: 'https://github.com/G43R1EL' },
+  ],
   creator: 'Equipo s20-03-webapp - NoCountry',
   description: '',
-  keywords: ['', '', ''],
+  keywords: ['ClassRun', 'Aula virtual', ''],
 }
 
 export default function RootLayout({
