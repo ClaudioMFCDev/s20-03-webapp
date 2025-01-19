@@ -1,12 +1,13 @@
+import Link from 'next/link'
+
+import { Section } from '@/components/atoms/section'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Section } from '@/components/atoms/section'
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import { FAQs } from '@/lib/landing-constans'
 
 export const FaqSection = () => {
