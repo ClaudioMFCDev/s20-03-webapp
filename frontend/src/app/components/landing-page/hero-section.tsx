@@ -16,7 +16,7 @@ import { Button } from '@/components/ui/button'
 export const HeroSection = () => {
   return (
     <Section
-      className="flex flex-col items-center gap-16 py-8 lg:flex-row"
+      className="flex flex-col items-center gap-8 py-8 lg:flex-row lg:gap-16"
       component={'section'}
     >
       <div className="flex w-full flex-col gap-6">
