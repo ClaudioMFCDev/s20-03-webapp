@@ -25,8 +25,6 @@
 </div>
 <h3 align="center">Equipo <strong>s20-03-webapp</strong></h3>
 
-## Descripción del Proyecto: ClassRun
-
 **ClassRun** es una plataforma digital intuitiva y eficiente que transforma la gestión educativa al facilitar el seguimiento del rendimiento escolar. Diseñada para empoderar a los educadores, ClassRun ofrece herramientas que optimizan la gestión académica, mejoran la experiencia escolar y fortalecen la comunicación entre todos los miembros de la comunidad educativa. Con un enfoque en la simplicidad y la accesibilidad, ClassRun se posiciona como una solución integral que busca inspirar el aprendizaje y fomentar un entorno colaborativo y comprometido con el éxito académico.
 
 ## **Características**
@@ -73,8 +71,8 @@ Descubre las principales funcionalidades de <em>ClassRun</em> en este vídeo: <b
 
 ### Diseño UX/UI
 
-- [Figma (Design)](https://www.figma.com/design/eLxhsqTFWoxAhORYaGiiEG/Main-c22-25-ft?node-id=4632-10746&t=KWpKwyhXJqpGe1zz-1)
-- [FigJam (User Research)](https://www.figma.com/board/etdplwylutDrAjQc2n90nJ/c22-25-ft-webapp?node-id=0-1&t=mKISuGfMHz3K8Ep2-1)
+- [Figma (Design)]()
+- [FigJam (User Research)]()
 
 ![Figma][Figma]
 
@@ -120,9 +118,123 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
   <img src="./web/public/logo.svg" width="800px" alt="Logo">
 </div>
 
-<h3 align="center">🛡️ <strong>Integrantes core</strong> ⚔️</h3>
+<h3 align="center"><strong>Integrantes principales</strong></h3>
 
-[[tabla de integrantes]]
+<table align="center">
+  <tr>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/73679190?v=4" width="100"></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/118488055?v=4" width="100"></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/141194661?v=4" width="100"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Eduardo R.</strong></td>
+    <td align="center"><strong>Juan S.</strong></td>
+    <td align="center"><strong>Azariel M.</strong></td>
+  </tr>
+  <tr>
+    <td align="center">Front-End</td>
+    <td align="center">Front-End</td>
+    <td align="center">Front-End</td>
+
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/mrredu/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/MrRedu">
+        <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/juan-sincich-219310245/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/JuanSincich">
+        <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/azariel-moreno-4267ba254/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/AzzADesigns">
+        <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/97706777?v=4" width="100"></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/86035143?v=4" width="100"></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/134566708?v=4" width="100"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Claudio M.</strong></td>
+    <td align="center"><strong>Gabriel H.</strong></td>
+    <td align="center"><strong>Sandro B.</strong></td>
+  </tr>
+  <tr>
+    <td align="center">Back-End</td>
+    <td align="center">Back-End</td>
+    <td align="center">UX/UI</td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/claudio-castillo-dev/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/ClaudioMFCDev">
+        <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
+      </a>
+    </td>
+    <td align="center">
+      <a href="#">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/G43R1EL">
+        <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
+      </a>
+    </td>
+        <td align="center">
+      <a href="https://www.linkedin.com/in/sandro-borga-065936246/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/Sandrooo0">
+        <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/99148932?v=4" width="100"></td>
+    <td align="center"><img src="https://avatars.githubusercontent.com/u/73199952?v=4" width="100"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Gared L.</strong></td>
+    <td align="center"><strong>Adriana S.</strong></td>
+  </tr>
+  <tr>
+    <td align="center">Product Manager</td>
+    <td align="center">Team Leader</td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/gared-lyon/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/GaredLyon">
+        <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://www.linkedin.com/in/adriana-sanchez-mejias/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=LinkedIn&logoColor=white" alt="LinkedIn">
+      </a>
+      <a href="https://github.com/Adri-ESM">
+        <img src="https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=GitHub&logoColor=white" alt="GitHub">
+      </a>
+    </td>
+  </tr>
+</table>
 
 <!--! Esto solo se verá cuando el repositorio esté en público -->
 <!-- <h3 align="center">Contribuyentes</h3>
@@ -136,7 +248,7 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
 <br><br>
 
 <div align="center">
-  <img src="./media/logo-nocountry.png" alt="Logo de NoCountry" width="120px" />
+  <img src="./assets/logo-nocountry.png" alt="Logo de NoCountry" width="120px" />
 </div>
 
 <!-- -->
