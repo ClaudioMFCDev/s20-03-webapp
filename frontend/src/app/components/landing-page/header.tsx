@@ -13,6 +13,14 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+/**
+ * The `Header` component renders the main navigation header of the landing-page.
+ * It consists of a logo, desktop navigation links, call-to-action buttons,
+ * and a mobile menu button. The mobile menu button toggles the visibility
+ * of a dropdown menu for smaller screens. The desktop navigation includes
+ * a dropdown menu with additional options.
+ */
+
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 

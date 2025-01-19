@@ -1,6 +1,14 @@
 import { Section } from '@/components/atoms/section'
 import { SERVICES } from '@/lib/landing-constans'
 
+/**
+ * Component that renders a section of the landing page showing the services that the application offers.
+ *
+ * This component renders a section with a title and a list of services. Each service is represented by an icon, a title and a description.
+ *
+ * @returns A JSX element representing the services section.
+ */
+
 export const ServicesSection = () => {
   return (
     <Section
