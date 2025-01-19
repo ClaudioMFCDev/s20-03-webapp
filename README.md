@@ -80,11 +80,11 @@ Descubre las principales funcionalidades de <em>ClassRun</em> en este vídeo: <b
 
 ### Backend
 
-![Node][Node]
+![Node.js][Node.js]![Express]![MongoDB][MongoDB]
 
 ### Frontend
 
-![Next.js][Next.js]![React.js][React.js]![TailwindCSS][TailwindCSS]![ReactHookForm][ReactHookForm]![ESLint][ESLint]![Prettier][Prettier]
+![Next.js][Next.js]![React.js][React.js]![TypeScript][TypeScript]![TailwindCSS][TailwindCSS]![Shadcn/ui][Shadcn/ui]![Axios][Axios]![ReactHookForm][ReactHookForm]![ESLint][ESLint]![Prettier][Prettier]
 
 ## **Contribución**
 
@@ -156,11 +156,17 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
 
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[Zustand]: https://img.shields.io/badge/Zustand-005570?style=for-the-badge&logo=zustand&logoColor=white
+[TypeScript]: https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white
 [Axios]: https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white
 [TailwindCSS]: https://img.shields.io/badge/TailwindCSS-06b6d4?style=for-the-badge&logo=tailwind-css&logoColor=white
 [ReactHookForm]: https://img.shields.io/badge/reacthookform-ec5990?style=for-the-badge&logo=reacthookform&logoColor=white
+[Shadcn/ui]: https://img.shields.io/badge/shadcn/ui-000000?style=for-the-badge&logo=shadcn/ui&logoColor=white
+[Axios]: https://img.shields.io/static/v1?style=for-the-badge&message=Axios&color=5A29E4&logo=Axios&logoColor=FFFFFF&label=
 [ESLint]: https://img.shields.io/badge/eslint-4b32c3?style=for-the-badge&logo=eslint&logoColor=white
 [Prettier]: https://img.shields.io/badge/prettier-f7b93e?style=for-the-badge&logo=prettier&logoColor=white
 
 <!-- Back-End - Badges -->
+
+[Node.js]: https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white
+[Express]: https://img.shields.io/badge/express.js-000000?style=for-the-badge&logo=express&logoColor=white
+[MongoDB]: https://img.shields.io/badge/-MongoDB-13aa52?style=for-the-badge&logo=mongodb&logoColor=white
