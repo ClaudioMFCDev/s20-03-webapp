@@ -38,7 +38,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={cn(`min-h-screen antialiased`, openSans.className)}>
+      <body
+        className={cn(
+          `mx-auto min-h-screen max-w-screen-2xl antialiased`,
+          openSans.className
+        )}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>
