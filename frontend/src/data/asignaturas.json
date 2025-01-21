@@ -1,0 +1,32 @@
+[
+  {
+    "id": "asig001",
+    "title": "Matemáticas Avanzadas",
+    "profesor_responsable_id": "prof001"
+  },
+  {
+    "id": "asig002",
+    "title": "Historia del Arte",
+    "profesor_responsable_id": "prof002"
+  },
+  {
+    "id": "asig003",
+    "title": "Programación Web",
+    "profesor_responsable_id": "prof003"
+  },
+  {
+    "id": "asig004",
+    "title": "Biología Molecular",
+    "profesor_responsable_id": "prof004"
+  },
+  {
+    "id": "asig005",
+    "title": "Física Clásica",
+    "profesor_responsable_id": "prof005"
+  },
+  {
+    "id": "asig006",
+    "title": "Literatura Comparada",
+    "profesor_responsable_id": "prof006"
+  }
+]
