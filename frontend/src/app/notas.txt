@@ -1,5 +1,173 @@
 estas notas son para guardar la logica se servira para enviar datos al back para crear un usuario
 
+const {register, handleSubmit, formState:{errors}, watch} = useForm()
+
+    console.log(errors)
+
+    const onSubmit = handleSubmit((data)=>{
+        console.log(data)
+    })
+
+
+    <form onSubmit={onSubmit}>
+            <label htmlFor="nombre">Nombre</label>
+            <input type="text" {...register("nombre", {
+                required:{
+                    value:true, 
+                    message: "Nombre es querido"
+                },
+                minLength:{
+                    value:3,
+                    message:"debe tener al menos 3 caracteres"
+                },
+                maxLength:{
+                    value: 15, 
+                    message:"maximo 15 caracteres"
+                }
+            })}/>
+
+            {
+                errors.nombre && <span>{errors.nombre.message}</span>
+            }
+
+            <label htmlFor="correo">Correo</label>
+            <input type="email" {...register("correo" , {
+                required: {
+                    value: true, 
+                    message: "correo es requerido"
+                },
+                pattern:{
+                    value: /^(?!(?:\.\.|-|\.\.|@.*@))[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,}$/,
+                    message: "correo no valido"
+                }
+            })} /> 
+
+            {
+                errors.correo && <span>{errors.correo.message}</span>
+            }
+
+            <label htmlFor="password">Password</label>
+            <input type="password" {...register("password" , {
+                required: {
+                    value: true,
+                    message:"Password es requerido"
+                }
+            })} />
+
+            {
+                errors.password && <span>{errors.password.message}</span>
+            }
+
+            <label htmlFor="confirmarPassword">Confirmar Password</label>
+            <input type="password" {...register("confirmarPassword" , {
+                required: {
+                    value: true,
+                    message: "Confirmar Password es requerido"
+                }, 
+                validate: (value)=>{
+                    if (value === watch("password")){
+                        return true
+                    }else {
+                        return "Los password no coinciden"
+                    }
+                }
+            })} />
+
+            {
+                errors.confirmarPassword && <span>{errors.confirmarPassword.message}</span>
+            }
+
+            <label htmlFor="fechaNacimiento">Fecha de Nacimiento </label>
+            <input type="date" {...register("fechaNacimiento" , {
+                required:{
+                    value: true,
+                    message: "Fecha de nacimiento es requerido"
+                },
+                validate: (value) =>{
+                    const fechaNacimiento = new Date(value)
+                    const fechaActual = new Date()
+                    const edad = fechaActual.getFullYear() - fechaNacimiento.getFullYear()
+                    return edad >= 18 ? true : "Debe ser mayor de edad" 
+                }
+            })} />
+
+            {
+                errors.fechaNacimiento && <span>{errors.fechaNacimiento.message}</span>
+            }
+
+            <label htmlFor="pais">Pais</label>
+            <select {...register("pais")}>
+                <option value="mx">México</option>
+                <option value="co">Colombia</option>
+                <option value="ar">Argentina</option>
+            </select>
+
+            <label htmlFor="foto">Foto de perfil</label>
+            <input type="file" {...register("foto" , {
+                required: true
+            })}/>
+
+            {
+                errors.foto && <span>foto es requerido</span>
+            }
+
+            <label htmlFor="terminos">Terminos y condiciones</label>
+            <input type="checkbox" {...register("terminos", {
+                required: true
+            })}/>
+
+            {
+                errors.terminos && <span>Aceptar es requerido</span>
+            }
+
+            <button type="submit">
+                Enviar
+            </button>
+        
+        </form>
+
+
+/////////////////////////////////////////////////////////
+
+
+
+
+    return (
+        <section className="bg-[#4169E1] w-full h-screen flex items-center justify-center relative z-10 overflow-hidden">
+            {icons.map((icon, index) => (
+                <motion.div
+                key={index}
+                animate={{
+                ...icon.position,
+                rotate: [0, 360],
+            }}
+                transition={{
+                    ease: "linear",
+                    duration: 0, 
+                    repeat: Infinity, 
+                }}
+                className="absolute"
+            >
+                <div className="w-20 h-20 bg-gradient-to-b  via-gray-200 to-gray-400 shadow-2xl  shadow-black rounded-full">
+                </div>
+                </motion.div>
+            ))}
+            <section className="w-full h-full flex justify-end">
+                <div className="bg-[#fcfcfcb4] h-full lg:w-[50%] backdrop-blur-md border border-white0 flex flex-col items-center justify-center shadow-black shadow-2xl z-50">
+                    <h2 className="text-2xl">Login</h2>
+                    <div>
+                        <ProfileForm />
+                    </div>
+                </div>
+            </section>
+        </section>
+    );
+}
+
+
+
+//////////////////////////////////////////////////
+
 
 const [username, setUsername] = useState("")
 const [password, setPassword] = useState("")
