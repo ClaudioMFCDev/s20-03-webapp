@@ -3,9 +3,10 @@ import { Metadata } from 'next'
 import { Section } from '@/components/atoms/section'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
-import ASIGNATURAS_JSON from '@/data/asignaturas.json'
-import { MoveUpRight, Pyramid } from 'lucide-react'
-import Link from 'next/link'
+import EVENTOS_JSON from '@/data/eventos.json'
+
+import { Calendar, CircleDashed } from 'lucide-react'
+import { SummarySubjectsGrid } from '@/components/organisms/summary-subjects-grid'
 
 export const metadata: Metadata = {
   title: 'Panel de control',
@@ -13,39 +14,33 @@ export const metadata: Metadata = {
 
 export default function DashboardPage() {
   return (
-    <Section className="flex w-full flex-col gap-4">
-      <Card>
+    <Section className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <SummarySubjectsGrid />
+
+      <Card className="col-span-1">
         <CardHeader>
-          <CardTitle>Resumen de asignaturas</CardTitle>
+          <CardTitle className="text-lg">Eventos pendientes</CardTitle>
         </CardHeader>
-        <CardContent className="grid-rows-auto grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {ASIGNATURAS_JSON.map(asignatura => (
-            <Card key={asignatura.id}>
+        <CardContent className="grid-rows-auto grid grid-cols-1 gap-4">
+          {EVENTOS_JSON.map(event => (
+            <Card key={event.id}>
               <CardHeader className="pb-2">
-                <CardTitle className="text-md">
-                  <Link
-                    href={`/dashboard/asignaturas/${asignatura.id}`}
-                    className="group flex items-center justify-between gap-4 hover:underline"
-                  >
-                    <div className="flex items-center gap-2">
-                      <Pyramid />
-                      {asignatura.title}
-                    </div>
-                    <MoveUpRight
-                      className="transition-transform group-hover:scale-125"
-                      size={14}
-                    />
-                  </Link>
-                </CardTitle>
+                <CardTitle className="text-base">{event.title}</CardTitle>
               </CardHeader>
-              <CardContent className="flex gap-2">
+              <CardContent className="ml-1 flex flex-col">
                 {/* {asignatura.profesor_responsable_id} */}
-                <span className="text-sm">Augusta Ada Byron</span>
+                <span className="flex items-center gap-2 text-sm">
+                  <CircleDashed size={16} className="h-4 min-w-4" />
+                  {event.course}
+                </span>
+                <span className="flex items-center gap-2 text-sm">
+                  <Calendar size={16} className="h-4 min-w-4" />
+                  {event.date}
+                </span>
               </CardContent>
             </Card>
           ))}
         </CardContent>
-        {/* <CardFooter>AVG: 19.5</CardFooter> */}
       </Card>
     </Section>
   )

@@ -50,7 +50,7 @@ const navGroups = [
     title: 'Aulas',
     items: [
       {
-        title: 'Pendientes',
+        title: 'En curso',
         icon: BookOpenCheck,
         url: '#',
         items: [
