@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button"
 import { useEffect } from "react";
 
-function App() {
+
+export default function SignInPage() {
     const ICON_COUNT = 10;
 
     const generateRandomPosition = () => ({
@@ -104,4 +105,4 @@ function App() {
     );
 }
 
-export default App;
+
