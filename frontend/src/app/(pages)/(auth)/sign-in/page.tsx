@@ -7,11 +7,11 @@ import { Button } from "@/components/ui/button"
 import { useEffect } from "react";
 
 function App() {
-    const ICON_COUNT = 30;
+    const ICON_COUNT = 10;
 
     const generateRandomPosition = () => ({
         x: Math.random() * window.innerWidth - window.innerWidth / 4,
-        y: Math.random() * window.innerHeight - window.innerHeight / 100,
+        y: Math.random() * window.innerHeight - window.innerHeight / 4,
     });
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -24,7 +24,7 @@ function App() {
     });
 
     return (
-        <section className="bg-[#4169E1] w-full h-screen flex items-center justify-center relative z-10 overflow-hidden">
+        <section className="bg-[#4169E1] w-full h-screen flex items-center justify-start relative z-10 overflow-hidden">
             {Array.from({ length: ICON_COUNT }).map((_, index) => {
                 const initialPosition = generateRandomPosition();
 
@@ -37,10 +37,10 @@ function App() {
                             y: [initialPosition.y, -initialPosition.y],
                         }}
                         transition={{
-                            duration: 5,
+                            duration: 15,
                             repeat: Infinity,
-                            repeatType: "mirror",
-                            ease: "anticipate",
+                            repeatType: "loop",
+                            ease: "linear",
                         }}
                         className="absolute"
                     >
@@ -73,7 +73,7 @@ function App() {
                             })}
                         />
                         {errors.email && (
-                            <span className="text-xs text-red-800 mt-2">{errors.email.message}</span>
+                            <span className="text-xs text-red-800 mt-2">{errors.email.message as string}</span>
                         )}
                     </div>
 
@@ -88,16 +88,16 @@ function App() {
                             })}
                         />
                         {errors.password && (
-                            <span className="text-xs text-red-800 mt-2">{errors.password.message}</span>
+                            <span className="text-xs text-red-800">{errors.password.message as string}</span>
                         )}
 
+                    </div>
                         <Button
                             type="submit"
                             className="bg-slate-950 text-white w-96 mt-10 rounded-sm py-[3px]"
                         >
                             Login
                         </Button>
-                    </div>
                 </form>
             </section>
         </section>
