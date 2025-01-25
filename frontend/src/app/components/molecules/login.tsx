@@ -1,7 +1,8 @@
 import React from 'react'
+import Background from './background'
 
 export const Login = () => {
   return (
-    <div>login</div>
+    <Background/>
   )
 }
