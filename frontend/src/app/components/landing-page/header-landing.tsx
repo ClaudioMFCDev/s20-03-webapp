@@ -14,26 +14,21 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 /**
- * The `Header` component renders the main navigation header of the landing-page.
+ * The `HeaderLanding` component renders the main navigation header of the landing-page.
  * It consists of a logo, desktop navigation links, call-to-action buttons,
  * and a mobile menu button. The mobile menu button toggles the visibility
  * of a dropdown menu for smaller screens. The desktop navigation includes
  * a dropdown menu with additional options.
  */
 
-export const Header = () => {
+export const HeaderLanding = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   return (
     <header className="border-b">
       <div className="flex h-16 w-full items-center justify-between px-4">
         <Link href="/" className="flex items-center">
-          <Image
-            src="/logotype.svg"
-            alt="ClassRun logo"
-            width={80}
-            height={80}
-          />
+          <Image src="/logo.svg" alt="ClassRun logo" width={120} height={120} />
         </Link>
 
         {/* Desktop Navigation */}

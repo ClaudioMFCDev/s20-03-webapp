@@ -1,5 +1,6 @@
-import { Section } from '@/components/atoms/section'
 import { SERVICES } from '@/lib/landing-constans'
+
+import { SectionLanding } from './section-landing'
 
 /**
  * Component that renders a section of the landing page showing the services that the application offers.
@@ -11,7 +12,7 @@ import { SERVICES } from '@/lib/landing-constans'
 
 export const ServicesSection = () => {
   return (
-    <Section
+    <SectionLanding
       component="section"
       className="flex flex-col gap-[48px] py-16 md:gap-[80px] lg:py-24"
     >
@@ -31,6 +32,6 @@ export const ServicesSection = () => {
           </div>
         ))}
       </div>
-    </Section>
+    </SectionLanding>
   )
 }
