@@ -1,5 +1,24 @@
 import { Box } from 'lucide-react'
 
+export const HEADER_LINKS = [
+  {
+    name: 'Inicio',
+    href: '#home',
+  },
+  {
+    name: 'Funcionalidades',
+    href: '#features',
+  },
+  {
+    name: 'Testimonios',
+    href: '#testimonials',
+  },
+  {
+    name: '¡Contáctanos!',
+    href: '#contact',
+  },
+]
+
 export const FAQs = [
   {
     id: 1,

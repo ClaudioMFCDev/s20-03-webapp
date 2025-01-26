@@ -4,19 +4,10 @@ import { Button } from '@/components/ui/button'
 
 import { SectionLanding } from './section-landing'
 
-/**
- * A hero section component for the landing page.
- *
- * It displays a title, a subtitle, a call-to-action button and a background image.
- * The title and subtitle are centered and the image is displayed on the right side
- * of the section on larger screens.
- *
- * @returns A hero section component as a JSX element.
- */
-
 export const HeroSection = () => {
   return (
     <SectionLanding
+      id="home"
       className="flex flex-col items-center gap-8 py-8 lg:flex-row lg:gap-16"
       component={'section'}
     >

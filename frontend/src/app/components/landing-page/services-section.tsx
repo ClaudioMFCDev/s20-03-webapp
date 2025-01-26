@@ -13,6 +13,7 @@ import { SectionLanding } from './section-landing'
 export const ServicesSection = () => {
   return (
     <SectionLanding
+      id="features"
       component="section"
       className="flex flex-col gap-[48px] py-16 md:gap-[80px] lg:py-24"
     >
