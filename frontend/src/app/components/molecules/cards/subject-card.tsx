@@ -76,7 +76,7 @@ export const SubjectCard = ({
           <CollapsibleContent>
             <div className="flex gap-2">
               {Array.from({ length: 5 })
-                .fill(undefined)
+                .fill()
                 .map((_, index) => index + 1)
                 .map(index => (
                   <div
