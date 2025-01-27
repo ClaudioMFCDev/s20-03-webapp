@@ -11,10 +11,10 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { Badge } from '#/src/app/components/ui/badge'
-import { Button } from '#/src/app/components/ui/button'
-import { Checkbox } from '#/src/app/components/ui/checkbox'
-import { User } from '#/src/types/user-type'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
+import { User } from '@/types/user-type'
 
 export const columns: ColumnDef<User>[] = [
   {
