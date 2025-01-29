@@ -6,7 +6,6 @@ import { Payment } from "#/src/data/payments.data"
 import { ColumnDef } from "@tanstack/react-table"
 import { useState } from "react"; 
 
-// Define las columnas
 export const columns: ColumnDef<Payment>[] = [
     {
         accessorKey: "alumnName",
@@ -15,7 +14,7 @@ export const columns: ColumnDef<Payment>[] = [
             const status = row.original.status;
             const variant = {
                 success: "success",
-                failed: "destructive", // Rojo
+                failed: "destructive",
             }[status] ?? ("default") as any;
 
             return <Badge variant={variant}>{row.original.alumnName}</Badge>;
@@ -35,7 +34,7 @@ export const columns: ColumnDef<Payment>[] = [
             };
 
             return (
-                <div className="flex items-center justify-start">
+                <div className="flex items-center justify-start w-5">
                     <Checkbox
                         checked={isChecked}
                         onCheckedChange={(checked) => handleCheckboxChange(checked as boolean)}
