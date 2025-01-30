@@ -35,11 +35,11 @@ export function DataTable<TData, TValue>({
     })
 
     return (
-        <div className="rounded-md border  flex flex-col justify-between items-center  w-full sm:w-[445px] p-5 ml-4">
+        <div className="rounded-md border  flex flex-col justify-between items-center  p-5 ">
             <Table className=" flex flex-col justify-between ">
                 <TableHeader className="flex justify-between" >
                     {table.getHeaderGroups().map((headerGroup) => (
-                        <TableRow  className="flex justify-between gap-44" key={headerGroup.id}>
+                        <TableRow  className="flex justify-between gap-28 lg:gap-44" key={headerGroup.id}>
                             {headerGroup.headers.map((header) => {
                                 return (
                                     <TableHead className="" key={header.id}>
