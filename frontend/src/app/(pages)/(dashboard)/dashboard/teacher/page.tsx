@@ -1,24 +1,25 @@
 'use client'
 
 import { Calculator, Users } from 'lucide-react'
-
 import { Section } from '#/src/app/components/atoms/section'
 import { UpdateGrades } from '#/src/app/components/molecules/card-grades'
 import { CardTeacher } from '#/src/app/components/molecules/card-teacher'
 import { ComboboxDemo } from '#/src/app/components/molecules/combobox'
 import { NotificationsTeacher } from '#/src/app/components/molecules/notifications-teacher'
+import { DataTable } from '@/app/(pages)/(dashboard)/dashboard/dataTable/data-table' // Importa el componente DataTable
+import { payments } from '@/data/payments.data' // Importa los datos de pagos (o alumnos)
+import { columns } from '@/app/(pages)/(dashboard)/dashboard/dataTable//colums' // Importa las columnas
 
 export default function TeacherPage() {
     return (
-        <Section className="w-full bg-[#FCFCFC]">
-            <aside className="mb-14 mt-12 flex w-[69%] items-center justify-between">
-                <h1 className="text-4xl">Bienvenido/a, Amanda martinez</h1>
+        <Section className="w-full">
+            <aside className="mb-8 flex  w-[69%] items-center justify-between">
                 <div className="mr-56">
                     <ComboboxDemo />
                 </div>
             </aside>
-            <section className="grid gap-10">
-                <div className="grid grid-cols-3 gap-7">
+            <section className="  justify-center items-center grid gap-10">
+                <div className="lg:grid lg:grid-cols-3 lg:gap-7 flex flex-col justify-center items-center">
                     <CardTeacher
                         title={'Total de estudiantes en la comisión'}
                         info={13}
@@ -39,13 +40,15 @@ export default function TeacherPage() {
                         icon={<Users className="h-4 w-4" />}
                     />
                 </div>
-                <div className="grid grid-cols-2">
+                <div className="lg:grid flex flex-col lg:grid-cols-2 justify-center lg:justify-end  w-[360px] lg:w-[95%] lg:pr-52 xl:pr-[26.5%]">
                     <div className="grid gap-10">
                         <UpdateGrades />
                         <NotificationsTeacher />
                     </div>
                     
-                    <h1>otro contenido </h1>
+                    <div className=' w-[337px] mt-10 lg:mt-0 lg:w-[640px] xl:w-[755px] shadow-md shadow-slate-300'>
+                        <DataTable columns={columns} data={payments} />
+                    </div>
                 </div>
             </section>
         </Section>
