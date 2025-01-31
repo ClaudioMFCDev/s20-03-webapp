@@ -15,26 +15,31 @@ import {
     SelectValue,
   } from "@/components/ui/select"
 
-export function UpdateGrades() {
+interface UpdateGradesProps {
+  names: string[];
+}
+
+export function UpdateGrades({ names }: UpdateGradesProps) {
   return (
-    <Card className="h-[404px] w-[332px] items-center bg-[#FCFCFC] shadow-md shadow-slate-300">
+    <Card className="col-span-1 bg-red-500 shadow-md shadow-slate-300">
       <CardHeader className="mt-2">
         <CardTitle className="">Subir Notas</CardTitle>
       </CardHeader>
-      <CardContent className=" ">
-        <form>
+      <CardContent>
+        <form >
           <div className="mt-3">
             <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Theme" />
+                <SelectTrigger >
+                  <SelectValue placeholder="Selecciona un alumno"  />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="light">Light</SelectItem>
-                  <SelectItem value="dark">Dark</SelectItem>
-                  <SelectItem value="system">System</SelectItem>
+                  {names.map((name, index) => (
+                    <SelectItem key={index} value={name} >
+                      {name}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
             </Select>
-
           </div>
           <div className="mt-3">
             <label htmlFor="number" className="">
