@@ -14,6 +14,7 @@ export default function TeacherPage() {
       {/* 
       - Falta el título dinámico según el course
       - Botón para "Guardar/Subir/Enviar" el presentismo
+      - Botón para "Enviar/Crear" asignación y/o examen
       */}
       <UpdateGrades names={studentNames} />
 
