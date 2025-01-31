@@ -11,6 +11,10 @@ export default function TeacherPage() {
 
   return (
     <Section className="grid grid-cols-3 gap-4" component={'section'}>
+      {/* 
+      - Falta el título dinámico según el course
+      - Botón para "Guardar/Subir/Enviar" el presentismo
+      */}
       <UpdateGrades names={studentNames} />
 
       <DataTable columns={columns} data={payments} />
