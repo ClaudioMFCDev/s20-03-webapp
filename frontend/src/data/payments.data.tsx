@@ -1,5 +1,5 @@
 import { v4 as uuidV4 } from "uuid";
-import { uniqueNamesGenerator, Config, names, countries } from "unique-names-generator";
+import { uniqueNamesGenerator, Config, names } from "unique-names-generator";
 
 const config: Config = {
     dictionaries: [names, names],

@@ -1,3 +1,5 @@
+"use client"
+
 import { payments } from "@/data/payments.data";
 import { columns } from "./colums";
 import { DataTable} from "./data-table";
