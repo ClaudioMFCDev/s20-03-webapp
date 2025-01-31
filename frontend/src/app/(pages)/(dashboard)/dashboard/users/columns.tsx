@@ -105,13 +105,13 @@ export const columns: ColumnDef<User>[] = [
     ),
     cell: ({ row }) => {
       const role = row.original.role
-
       const roleIcon = {
         schoolAdmin: <UserRoundSearch className="h-4 w-4 text-gray-600" />,
         teacher: <Contact className="h-4 w-4 text-gray-600" />,
         student: <UserRound className="h-4 w-4 text-gray-600" />,
         parent: <Users className="h-4 w-4 text-gray-600" />,
       } as const
+      
       return (
         <span className="flex items-center gap-2">
           {roleIcon[role]}
