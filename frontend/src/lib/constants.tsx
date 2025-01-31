@@ -12,24 +12,9 @@ export const navGroups = [
     title: 'General',
     items: [
       {
-        title: 'Dash - schoolAdmin',
-        icon: LayoutDashboard,
-        url: '/dashboard/school-admin',
-      },
-      {
-        title: 'Dash - teacher',
-        icon: LayoutDashboard,
-        url: '/dashboard/teacher',
-      },
-      {
-        title: 'Dash - student',
+        title: 'Panel de control',
         icon: LayoutDashboard,
         url: '/dashboard',
-      },
-      {
-        title: 'Dash - parent',
-        icon: LayoutDashboard,
-        url: '/dashboard/parent',
       },
     ],
   },

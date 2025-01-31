@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { RandomTipAlert } from '@/components/atoms/random-tip-alert'
+
 import { SubjectCard } from '@/components/molecules/cards/subject-card'
 import {
   Card,
@@ -9,13 +9,16 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import SUBJECTS_JSON from '@/data/subjects.json'
+import { RandomTipAlert } from '@/components/atoms/random-tip-alert'
 
 interface SummarySubjectsGridProps {
   className?: string
+  randomTips?: boolean
 }
 
 export const SummarySubjectsGrid = ({
   className,
+  randomTips = false,
 }: SummarySubjectsGridProps) => {
   return (
     <Card className={cn('h-fit w-full', className)}>
@@ -33,9 +36,11 @@ export const SummarySubjectsGrid = ({
           />
         ))}
       </CardContent>
-      <CardFooter>
-        <RandomTipAlert />
-      </CardFooter>
+      {randomTips && (
+        <CardFooter>
+          <RandomTipAlert />
+        </CardFooter>
+      )}
     </Card>
   )
 }
