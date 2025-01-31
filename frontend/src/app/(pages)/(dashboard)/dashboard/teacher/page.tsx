@@ -12,7 +12,7 @@ import { columns } from '@/app/(pages)/(dashboard)/dashboard/dataTable//colums' 
 
 export default function TeacherPage() {
     return (
-        <Section className="w-full">
+        <Section className="w-full flex flex-col">
             <aside className="mb-8 flex  w-[69%] items-center justify-between">
                 <div className="mr-56">
                     <ComboboxDemo />
@@ -40,13 +40,13 @@ export default function TeacherPage() {
                         icon={<Users className="h-4 w-4" />}
                     />
                 </div>
-                <div className="lg:grid flex flex-col lg:grid-cols-2 justify-center lg:justify-end  w-[360px] lg:w-[95%] lg:pr-52 xl:pr-[26.5%]">
-                    <div className="grid gap-10">
+                <div className="lg:grid flex flex-col lg:grid-cols-2  lg:justify-end  lg:w-[95%] lg:pr-52 xl:pr-[26.5%]">
+                    <div className="grid gap-10 justify-center lg:justify-start">
                         <UpdateGrades />
                         <NotificationsTeacher />
                     </div>
                     
-                    <div className=' w-[337px] mt-10 lg:mt-0 lg:w-[640px] xl:w-[755px] shadow-md shadow-slate-300'>
+                    <div className=' w-[337px]  mt-10 lg:mt-0  xl:w-[670px]  2xl:w-[755px] shadow-md shadow-slate-300'>
                         <DataTable columns={columns} data={payments} />
                     </div>
                 </div>
