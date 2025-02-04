@@ -65,8 +65,8 @@ export default function DeshboardTutor(){
     ]
 
     return(
-        <Section className=' flex flex-col lg:flex-row justify-center items-center lg:grid  2xl:grid-cols-3 mt-10 xl:flex xl:justify-center xl:items-center xl:w-full'>
-            <section className='flex flex-col  xl:justify-start 2xl:items-start lg:w-[930px] lg:gap-72 xl:w-[30%] xl:gap-16'>
+        <Section className='grid justify-center 2xl:grid-cols-3 mt-10 xl:flex xl:justify-center xl:items-center xl:w-full'>
+            <section className='flex flex-col b md:flex-row md:gap-52 xl:flex-col  xl:justify-start 2xl:items-start lg:w-[930px] lg:gap-72 xl:w-[30%] xl:gap-16'>
                     <Card className='mb-10 lg:mb-0 w-80 h-80 flex flex-col justify-center items-center gap-5  shadow-md'>
                         <CardTitle className='mt-5 text-3xl'>
                             Asistencia General
@@ -91,7 +91,7 @@ export default function DeshboardTutor(){
             <section className="lg:col-span-2 lg:w-[930px] 2xl:w-[1000px] lg:mt-10 xl:mt-0">
                 <div className="h-[770px] lg:overflow-y-auto scroll-container ">
                     {materias.map((materia, materiaIndex) => (
-                        <Card key={materiaIndex} className="shadow-md  w-80 lg:w-full lg:h-32 lg:flex lg:flex-col lg:justify-center lg:items-center lg:px-5 mb-8 pb-10 pt-10 lg:pt-0 lg:pb-0">
+                        <Card key={materiaIndex} className="shadow-md  w-80 xl:w-[88%] 2xl:w-full lg:h-32 lg:flex lg:flex-col lg:justify-center lg:items-center lg:px-5 mb-8 pb-10 pt-10 lg:pt-0 lg:pb-0  lg:ml-0 xl:ml-10 2xl:ml-0">
                             <div className="flex flex-col items-center lg:gap-0 lg:flex-row lg:justify-between lg:w-full">
                                 <h2 className="text-xl lg:text-2xl">{materia.nombre}</h2>
                                 <p className="text-xl lg:text-xl">{materia.dias}</p>
@@ -111,7 +111,7 @@ export default function DeshboardTutor(){
                                     ))}
                                 </span>
                             </div>
-                            <section className="flex flex-col items-center gap-2  lg:flex-row  lg:mt-3 lg:w-[950px] lg:gap-3 lg:px-5 lg:justify-center lg:items-center">
+                            <section className="flex flex-col items-center gap-2   lg:flex-row  lg:mt-3 lg:w-[950px] lg:gap-2 2xl:gap-3 lg:px-5 lg:justify-center lg:items-center">
                                 {circles.map((_, index) => {
                                     const isBigCircle = (index + 1) % 3 === 0;
                                     return (
@@ -119,11 +119,11 @@ export default function DeshboardTutor(){
                                             key={index}
                                             className={`${
                                                 isBigCircle
-                                                    ? "w-44 lg:w-16 lg:h-16 text-violet-500"
-                                                    : "w-44 lg:w-12 lg:h-12 bg-violet-500 text-white" 
+                                                    ? "w-44 lg:w-8 2xl:w-16 lg:h-16 text-violet-500"
+                                                    : "w-44 lg:w-8 2xl:w-12 lg:h-12 bg-violet-500 text-white" 
                                             } shadow-[inset_1px_3px_10px_rgba(0,0,0,0.5)] lg:rounded-full z-10 flex justify-center items-center`}
                                         >
-                                            <span className="lg:text-2xl font-bold">
+                                            <span className="2xl:text-2xl font-bold">
                                                 {materia.notas[index]}
                                             </span>
                                         </div>
