@@ -58,6 +58,7 @@ export const SERVICES = [
     title: 'Seguimiento Completo',
     description: 'Accede al historial académico de cada estudiante.',
     icon: Box,
+    src: '/services/seguimiento-completo.svg',
   },
   {
     id: 2,
@@ -65,18 +66,21 @@ export const SERVICES = [
     description:
       'Conecta docentes, estudiantes y familias con mensajes instantáneos.',
     icon: Box,
+    src: '/services/comunicacion-directa.svg',
   },
   {
     id: 3,
     title: 'Reportes Automatizados',
     description: 'Genera informes detallados sobre el progreso.',
     icon: Box,
+    src: '/services/reportes-automatizados.svg',
   },
   {
     id: 4,
     title: 'Fácil de Usar',
     description: 'Interfaz intuitiva diseñada para todo público.',
     icon: Box,
+    src: '/services/facil-de-usar.svg',
   },
 ]
 
