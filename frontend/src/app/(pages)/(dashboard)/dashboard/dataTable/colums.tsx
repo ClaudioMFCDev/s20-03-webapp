@@ -10,7 +10,7 @@ import { Payment } from '#/src/data/payments.data'
 export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: 'alumnName',
-    header: 'Alumn Name',
+    header: 'Alumno',
     cell: ({ row }) => {
       const status = row.original.status
       const variant =
@@ -25,7 +25,7 @@ export const columns: ColumnDef<Payment>[] = [
 
   {
     accessorKey: 'status',
-    header: 'Presentism',
+    header: () => <div className="text-right pr-4">Presentism</div>,
     cell: ({ row }) => {
       const [isChecked, setIsChecked] = useState(
         row.original.status === 'success'
@@ -38,7 +38,7 @@ export const columns: ColumnDef<Payment>[] = [
       }
 
       return (
-        <div className="flex w-5 items-center justify-start">
+        <div className="flex w-5 ml-28 items-center justify-start">
           <Checkbox
             checked={isChecked}
             onCheckedChange={checked =>

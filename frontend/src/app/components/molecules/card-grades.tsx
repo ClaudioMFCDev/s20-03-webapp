@@ -7,59 +7,84 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
+import { useState } from "react";
 
 interface UpdateGradesProps {
-  names: string[]
+  names: string[];
 }
 
 export function UpdateGrades({ names }: UpdateGradesProps) {
+  const [value, setValue] = useState<string>("");
+  const [selected, setSelected] = useState<string>("");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    if (/^\d*$/.test(newValue)) {
+      const number = Number(newValue);
+      if ((number >= 1 && number <= 10) || newValue === "") {
+        setValue(newValue);
+      }
+    }
+  };
+
   return (
-    <Card className="col-span-1 bg-red-500 shadow-md shadow-slate-300">
-      <CardHeader className="mt-2">
-        <CardTitle className="">Subir Notas</CardTitle>
+    <Card className="flex flex-col justify-center shadow-md p-5">
+      <CardHeader>
+        <CardTitle>Subir Notas</CardTitle>
       </CardHeader>
       <CardContent>
-        <form>
-          <div className="mt-3">
-            <Select>
-              <SelectTrigger>
-                <SelectValue placeholder="Selecciona un alumno" />
-              </SelectTrigger>
-              <SelectContent>
-                {names.map((name, index) => (
-                  <SelectItem key={index} value={name}>
-                    {name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+        <form className="p-2 flex flex-col gap-5">
+          <div>
+            <label htmlFor="alumno">Alumno</label>
+            <div className="relative w-full max-w-sm">
+                <button
+                  type="button"
+                  className="w-full p-2 border rounded-md text-left"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  {selected || "Selecciona un alumno"}
+                </button>
+                {isOpen && (
+                  <ul className="absolute z-10 w-full mt-1 border rounded-md shadow-lg max-h-[200px] overflow-y-auto bg-slate-500">
+                    {names.map((name, index) => (
+                      <li
+                        key={index}
+                        className="p-2 cursor-pointer hover:bg-gray-600"
+                        onClick={() => {
+                          setSelected(name);
+                          setIsOpen(false);
+                        }}
+                      >
+                        {name}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+            </div>
+
+          </div>
+          <div>
+            <label htmlFor="number">Note</label>
+            <Input
+              className="mt-5"
+              type="text"
+              value={value}
+              onChange={handleChange}
+              placeholder="Ingresa solo números"
+            />
           </div>
           <div className="mt-3">
-            <label htmlFor="number" className="">
-              Note
-            </label>
-            <Input className="mt-1" />
+            <label htmlFor="tarea">Título de la Tarea / Examen</label>
+            <Input className="mt-5" />
           </div>
         </form>
       </CardContent>
       <CardFooter className="flex justify-between">
-        <Button
-          type="submit"
-          className="w-[78px] border bg-[#FCFCFC] text-black hover:bg-red-400"
-        >
-          Delete
-        </Button>
         <Button type="submit" className="w-[78px]">
           Update
         </Button>
       </CardFooter>
     </Card>
-  )
+  );
 }

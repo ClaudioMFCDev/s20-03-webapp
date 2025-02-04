@@ -18,7 +18,7 @@ const randomStatus = () => {
   return statuses[Math.floor(Math.random() * statuses.length)]
 }
 
-export const payments: Payment[] = Array.from({ length: 100 }, _ => {
+export const payments: Payment[] = Array.from({ length: 30 }, _ => {
   const randomName = uniqueNamesGenerator(config)
 
   return {
