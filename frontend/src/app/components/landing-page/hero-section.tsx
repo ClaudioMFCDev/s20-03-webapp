@@ -36,11 +36,11 @@ export const HeroSection = () => {
 
       <div className="aspect-video w-full overflow-hidden rounded-lg">
         <Image
-          src="https://placehold.co/1920x1080.jpg"
+          src="/hero-section.jpg"
           alt="Hero section image"
-          width={1920}
-          height={1080}
-          className="object-cover"
+          width={1000}
+          height={600}
+          className="mx-auto rounded-lg border object-cover object-center shadow-xl"
           priority
         />
       </div>

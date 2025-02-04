@@ -1,11 +1,12 @@
 import { SERVICES } from '@/lib/landing-constans'
 
 import { SectionLanding } from './section-landing'
+import Image from 'next/image'
 
 /**
  * Component that renders a section of the landing page showing the services that the application offers.
  *
- * This component renders a section with a title and a list of services. Each service is represented by an icon, a title and a description.
+ * This component renders a section with a title and a list of services. Each service is represented by an image, a title and a description.
  *
  * @returns A JSX element representing the services section.
  */
@@ -27,7 +28,13 @@ export const ServicesSection = () => {
             key={service.id}
             className="flex flex-col items-center justify-center gap-4 text-center md:gap-6"
           >
-            <service.icon className="h-12 w-12" />
+            <Image
+              src={service.src}
+              alt={service.title}
+              width={200}
+              height={200}
+              className="h-[200px] w-[200px]"
+            />
             <h4 className="text-md font-bold">{service.title}</h4>
             <p>{service.description}</p>
           </div>
