@@ -1,50 +1,138 @@
 'use client'
 
 import { type ColumnDef } from '@tanstack/react-table'
-import { useState } from 'react'
-
 import { Badge } from '#/src/app/components/ui/badge'
+import { Button } from '#/src/app/components/ui/button'
+import { Input } from '#/src/app/components/ui/input'
 
 export type User = {
   type: 'profesor' | 'alumno'
   materia: string
-  dni: string
-  celular: string
+  dni: number
+  celular: number
   nombreApellido: string
   correo?: string
   nombreTutor?: string
-  dniTutor?: string
-  telefonoTutor?: string
+  dniTutor?: number
+  telefonoTutor?: number
   correoTutor?: string
 }
 
-export const columns: ColumnDef<User>[] = [
+export const columns = ({
+  handleSave,
+  handleDelete,
+  editingIndex,
+  setEditingIndex,
+}: {
+  handleSave: (index: number, updatedUser: User) => void
+  handleDelete: (index: number) => void
+  editingIndex: number | null
+  setEditingIndex: (index: number | null) => void
+}): ColumnDef<User>[] => [
   {
     accessorKey: 'nombreApellido',
     header: 'Nombre y Apellido',
     cell: ({ row }) => {
       const user = row.original
-      return <Badge variant="default">{user.nombreApellido}</Badge>
+      const index = row.index
+      const isEditing = editingIndex === index
+
+      return isEditing ? (
+        <Input
+          defaultValue={user.nombreApellido}
+          onChange={(e) => {
+            const updatedUser = { ...user, nombreApellido: e.target.value }
+            row.original = updatedUser
+          }}
+        />
+      ) : (
+        <Badge variant="default">{user.nombreApellido}</Badge>
+      )
     },
   },
   {
     accessorKey: 'materia',
     header: 'Materia',
+    cell: ({ row }) => {
+      const user = row.original
+      const index = row.index
+      const isEditing = editingIndex === index
+
+      return isEditing ? (
+        <Input
+          defaultValue={user.materia}
+          onChange={(e) => {
+            const updatedUser = { ...user, materia: e.target.value }
+            row.original = updatedUser
+          }}
+        />
+      ) : (
+        user.materia
+      )
+    },
   },
   {
     accessorKey: 'dni',
     header: 'DNI',
+    cell: ({ row }) => {
+      const user = row.original
+      const index = row.index
+      const isEditing = editingIndex === index
+
+      return isEditing ? (
+        <Input
+          defaultValue={user.dni}
+          onChange={(e) => {
+            const updatedUser = { ...user, dni: e.target.value }
+            row.original = updatedUser
+          }}
+        />
+      ) : (
+        user.dni
+      )
+    },
   },
   {
     accessorKey: 'celular',
     header: 'Celular',
+    cell: ({ row }) => {
+      const user = row.original
+      const index = row.index
+      const isEditing = editingIndex === index
+
+      return isEditing ? (
+        <Input
+          defaultValue={user.celular}
+          onChange={(e) => {
+            const updatedUser = { ...user, celular: e.target.value }
+            row.original = updatedUser
+          }}
+        />
+      ) : (
+        user.celular
+      )
+    },
   },
   {
     accessorKey: 'correo',
     header: 'Correo',
     cell: ({ row }) => {
       const user = row.original
-      return user.type === 'profesor' ? user.correo : '-'
+      const index = row.index
+      const isEditing = editingIndex === index
+
+      // Solo editable si es profesor
+      return isEditing && user.type === 'profesor' ? (
+        <Input
+          defaultValue={user.correo || ''}
+          onChange={(e) => {
+            const updatedUser = { ...user, correo: e.target.value }
+            row.original = updatedUser
+          }}
+        />
+      ) : (
+        user.correo || '-'
+      )
     },
   },
   {
@@ -52,7 +140,21 @@ export const columns: ColumnDef<User>[] = [
     header: 'Nombre Tutor',
     cell: ({ row }) => {
       const user = row.original
-      return user.type === 'alumno' ? user.nombreTutor : '-'
+      const index = row.index
+      const isEditing = editingIndex === index
+
+      // Solo editable si es alumno
+      return isEditing && user.type === 'alumno' ? (
+        <Input
+          defaultValue={user.nombreTutor || ''}
+          onChange={(e) => {
+            const updatedUser = { ...user, nombreTutor: e.target.value }
+            row.original = updatedUser
+          }}
+        />
+      ) : (
+        user.nombreTutor || '-'
+      )
     },
   },
   {
@@ -60,7 +162,21 @@ export const columns: ColumnDef<User>[] = [
     header: 'DNI Tutor',
     cell: ({ row }) => {
       const user = row.original
-      return user.type === 'alumno' ? user.dniTutor : '-'
+      const index = row.index
+      const isEditing = editingIndex === index
+
+      // Solo editable si es alumno
+      return isEditing && user.type === 'alumno' ? (
+        <Input
+          defaultValue={user.dniTutor || ''}
+          onChange={(e) => {
+            const updatedUser = { ...user, dniTutor: e.target.value }
+            row.original = updatedUser
+          }}
+        />
+      ) : (
+        user.dniTutor || '-'
+      )
     },
   },
   {
@@ -68,7 +184,21 @@ export const columns: ColumnDef<User>[] = [
     header: 'Teléfono Tutor',
     cell: ({ row }) => {
       const user = row.original
-      return user.type === 'alumno' ? user.telefonoTutor : '-'
+      const index = row.index
+      const isEditing = editingIndex === index
+
+      // Solo editable si es alumno
+      return isEditing && user.type === 'alumno' ? (
+        <Input
+          defaultValue={user.telefonoTutor || ''}
+          onChange={(e) => {
+            const updatedUser = { ...user, telefonoTutor: e.target.value }
+            row.original = updatedUser
+          }}
+        />
+      ) : (
+        user.telefonoTutor || '-'
+      )
     },
   },
   {
@@ -76,31 +206,57 @@ export const columns: ColumnDef<User>[] = [
     header: 'Correo Tutor',
     cell: ({ row }) => {
       const user = row.original
-      return user.type === 'alumno' ? user.correoTutor : '-'
+      const index = row.index
+      const isEditing = editingIndex === index
+
+      // Solo editable si es alumno
+      return isEditing && user.type === 'alumno' ? (
+        <Input
+          defaultValue={user.correoTutor || ''}
+          onChange={(e) => {
+            const updatedUser = { ...user, correoTutor: e.target.value }
+            row.original = updatedUser
+          }}
+        />
+      ) : (
+        user.correoTutor || '-'
+      )
     },
   },
   {
-    id: 'rol',
-    header: 'Rol',
+    id: 'actions',
+    header: 'Acciones',
     cell: ({ row }) => {
-      const user = row.original
-      const [rol, setRol] = useState(user.type)
-
-      const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const newRol = event.target.value as 'profesor' | 'alumno'
-        setRol(newRol)
-        row.original.type = newRol // Actualiza el tipo en los datos
-      }
+      const index = row.index
+      const isEditing = editingIndex === index
 
       return (
-        <select
-          value={rol}
-          onChange={handleChange}
-          className="rounded-md border p-1"
-        >
-          <option value="profesor">Profesor</option>
-          <option value="alumno">Alumno</option>
-        </select>
+        <div className="flex gap-2">
+          {isEditing ? (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => handleSave(index, row.original)}
+            >
+              Guardar
+            </Button>
+          ) : (
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setEditingIndex(index)}
+            >
+              Editar
+            </Button>
+          )}
+          <Button
+            variant="destructive"
+            size="sm"
+            onClick={() => handleDelete(index)}
+          >
+            Eliminar
+          </Button>
+        </div>
       )
     },
   },

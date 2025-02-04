@@ -41,7 +41,6 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="flex h-[760px] flex-col justify-between rounded-md border p-5">
-     
       <Table className="flex-1">
         <TableHeader className="">
           {table.getHeaderGroups().map(headerGroup => (

@@ -47,7 +47,8 @@ export default function Page() {
     telefonoTutor: '',
     correoTutor: '',
   })
-  const [comisionNombre, setComisionNombre] = useState('') // Estado para el nombre de la comisión
+  const [comisionNombre, setComisionNombre] = useState('')
+  const [editingIndex, setEditingIndex] = useState<number | null>(null) // Estado para la fila en edición
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -77,19 +78,32 @@ export default function Page() {
     setIsFormOpen(false)
   }
 
+  // Función para eliminar una fila
+  const handleDelete = (index: number) => {
+    const updatedData = data.filter((_, i) => i !== index)
+    setData(updatedData)
+  }
+
+  // Función para guardar la edición de una fila
+  const handleSave = (index: number, updatedUser: User) => {
+    const updatedData = data.map((user, i) =>
+      i === index ? updatedUser : user
+    )
+    setData(updatedData)
+    setEditingIndex(null) // Salir del modo edición
+  }
+
   return (
     <div className="p-5">
-      {/* Título dinámico */}
       <h1 className="text-2xl font-bold mb-5">
         {comisionNombre ? `Comisión: ${comisionNombre}` : 'Seleccione una comisión'}
       </h1>
 
-      {/* Contenedor para el input y el botón */}
       <div className="flex gap-4 mb-5">
         <Input
           placeholder="Nombre de la comisión"
           value={comisionNombre}
-          onChange={(e) => setComisionNombre(e.target.value)} // Actualiza el estado del nombre de la comisión
+          onChange={(e) => setComisionNombre(e.target.value)}
           className="w-1/3"
         />
         <Button onClick={() => setIsFormOpen(!isFormOpen)}>
@@ -97,7 +111,6 @@ export default function Page() {
         </Button>
       </div>
 
-      {/* Formulario para agregar usuarios */}
       <AnimatePresence>
         {isFormOpen && (
           <motion.div
@@ -106,6 +119,7 @@ export default function Page() {
             exit={{ opacity: 0, y: -20 }}
             className="mb-5 rounded-lg border p-5"
           >
+            
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <Label>Tipo de Usuario</Label>
@@ -207,18 +221,22 @@ export default function Page() {
               )}
               <Button type="submit">Agregar</Button>
             </form>
+            
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Tabla de usuarios */}
+      {/* Pasamos las funciones handleSave y handleDelete a las columnas */}
       <motion.div
         key={data.length}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
       >
-        <DataTable columns={columns} data={data} />
+        <DataTable
+          columns={columns({ handleSave, handleDelete, editingIndex, setEditingIndex })}
+          data={data}
+        />
       </motion.div>
     </div>
   )
