@@ -21,7 +21,6 @@ const initialData: User[] = [
   },
   {
     type: 'alumno',
-    materia: 'Matemáticas',
     dni: '87654321',
     celular: '987654321',
     nombreApellido: 'Ana Gómez',
@@ -48,7 +47,7 @@ export default function Page() {
     correoTutor: '',
   })
   const [comisionNombre, setComisionNombre] = useState('')
-  const [editingIndex, setEditingIndex] = useState<number | null>(null) // Estado para la fila en edición
+  const [editingIndex, setEditingIndex] = useState<number | null>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -57,7 +56,7 @@ export default function Page() {
 
   const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const type = e.target.value as 'profesor' | 'alumno'
-    setNewUser((previous) => ({ ...previous, type }))
+    setNewUser((previous) => ({ ...previous, type, materia: type === 'profesor' ? previous.materia : '' }))
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -78,19 +77,17 @@ export default function Page() {
     setIsFormOpen(false)
   }
 
-  // Función para eliminar una fila
   const handleDelete = (index: number) => {
     const updatedData = data.filter((_, i) => i !== index)
     setData(updatedData)
   }
 
-  // Función para guardar la edición de una fila
   const handleSave = (index: number, updatedUser: User) => {
     const updatedData = data.map((user, i) =>
       i === index ? updatedUser : user
     )
     setData(updatedData)
-    setEditingIndex(null) // Salir del modo edición
+    setEditingIndex(null)
   }
 
   return (
@@ -119,7 +116,6 @@ export default function Page() {
             exit={{ opacity: 0, y: -20 }}
             className="mb-5 rounded-lg border p-5"
           >
-            
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <Label>Tipo de Usuario</Label>
@@ -141,15 +137,17 @@ export default function Page() {
                   required
                 />
               </div>
-              <div>
-                <Label>Materia</Label>
-                <Input
-                  name="materia"
-                  value={newUser.materia}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
+              {newUser.type === 'profesor' && (
+                <div>
+                  <Label>Materia</Label>
+                  <Input
+                    name="materia"
+                    value={newUser.materia}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+              )}
               <div>
                 <Label>DNI</Label>
                 <Input
@@ -221,12 +219,10 @@ export default function Page() {
               )}
               <Button type="submit">Agregar</Button>
             </form>
-            
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Pasamos las funciones handleSave y handleDelete a las columnas */}
       <motion.div
         key={data.length}
         initial={{ opacity: 0, y: 20 }}
