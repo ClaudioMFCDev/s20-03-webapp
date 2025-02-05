@@ -15,7 +15,7 @@ interface PendingEventsProps {
 
 export const PendingEvents = ({ className }: PendingEventsProps) => {
   return (
-    <Card className={cn('h-fit w-full', className)}>
+    <Card className="h-[750px] overflow-y-auto">
       <CardHeader>
         <CardTitle className="text-lg">Eventos pendientes</CardTitle>
       </CardHeader>

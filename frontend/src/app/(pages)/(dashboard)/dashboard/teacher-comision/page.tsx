@@ -3,8 +3,8 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
 
-import { columns } from '@/app/(pages)/(dashboard)/dashboard/dataTable//colums'
-import { DataTable } from '@/app/(pages)/(dashboard)/dashboard/dataTable/data-table'
+import { columns } from '#/src/app/(pages)/(dashboard)/dashboard/TablePresentism/colums'
+import { DataTable } from '#/src/app/(pages)/(dashboard)/dashboard/TablePresentism/data-table'
 import { payments } from '@/data/payments.data'
 import { Section } from '#/src/app/components/atoms/section'
 import CreateTask from '#/src/app/components/molecules/cards/create-Task'

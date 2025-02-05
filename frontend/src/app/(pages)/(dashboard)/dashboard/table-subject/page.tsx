@@ -31,7 +31,7 @@ const initialData: User[] = [
   },
 ]
 
-export default function Page() {
+export default function PageAdmin() {
   const [data, setData] = useState<User[]>(initialData)
   const [isFormOpen, setIsFormOpen] = useState(false)
   const [newUser, setNewUser] = useState<User>({

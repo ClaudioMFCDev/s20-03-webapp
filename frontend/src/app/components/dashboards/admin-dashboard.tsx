@@ -1,10 +1,10 @@
 import { Section } from '@/components/atoms/section'
-import DeshboardTutor from '../../(pages)/(dashboard)/dashboard/tutor/page'
+import PageAdmin from '../../(pages)/(dashboard)/dashboard/table-subject/page'
 
 export const ParentDashboard = () => {
   return (
     <Section>
-      <DeshboardTutor/>
+      <PageAdmin/>
     </Section>
   )
 }
