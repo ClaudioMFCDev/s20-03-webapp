@@ -14,7 +14,7 @@ export const navGroups = [
       {
         title: 'Panel de control',
         icon: LayoutDashboard,
-        url: '/dashboard',
+        url: '/dashboard/',
       },
     ],
   },
@@ -22,9 +22,9 @@ export const navGroups = [
     title: 'Gestión de usuarios',
     items: [
       {
-        title: 'Usuarios',
+        title: 'Crear Comision',
         icon: Users,
-        url: '/dashboard/users',
+        url: '/dashboard/table-subject',
       },
     ],
   },
@@ -38,19 +38,19 @@ export const navGroups = [
         items: [
           {
             title: '5to A - 2024',
-            url: '/dashboard/subject/163',
+            url: '/dashboard/teacher-comision',
           },
           {
             title: '6to A - 2024',
-            url: '/dashboard/subject/164',
+            url: '/dashboard/teacher-comision',
           },
           {
             title: '7mo A - 2024',
-            url: '/dashboard/subject/165',
+            url: '/dashboard/teacher-comision',
           },
           {
             title: '8vo A - 2024',
-            url: '/dashboard/subject/166',
+            url: '/dashboard/teacher-comision',
           },
         ],
       },

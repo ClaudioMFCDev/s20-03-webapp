@@ -1,7 +1,7 @@
-import { Calendar, CircleDashed, NotepadText } from 'lucide-react'
+import { Calendar, CircleDashed, NotepadText, User } from 'lucide-react'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import EVENTOS_JSON from '@/data/eventos.json'
+import EVENTOS_JSON from '@/data/eventosTeacher.json'
 import { cn } from '@/lib/utils'
 
 export const textTypes: Record<string, string> = {
@@ -13,11 +13,11 @@ interface PendingEventsProps {
   className?: string
 }
 
-export const PendingEvents = ({ className }: PendingEventsProps) => {
+export const PendingEventsTeacher = ({ className }: PendingEventsProps) => {
   return (
-    <Card className="h-[750px] overflow-y-auto">
+    <Card className={cn('h-fit w-full', className)}>
       <CardHeader>
-        <CardTitle className="text-lg">Eventos pendientes</CardTitle>
+        <CardTitle className="text-lg">Entregas de Alumnos</CardTitle>
       </CardHeader>
       <CardContent className="grid-rows-auto grid grid-cols-1 gap-4">
         {EVENTOS_JSON.map(event => (
@@ -26,7 +26,10 @@ export const PendingEvents = ({ className }: PendingEventsProps) => {
               <CardTitle className="text-base">{event.title}</CardTitle>
             </CardHeader>
             <CardContent className="ml-1 flex flex-col">
-              {/* {asignatura.profesor_responsable_id} */}
+              <span className="flex items-center gap-2 text-sm">
+                <User size={16} className="h-4 min-w-4" />
+                {event.studentName} - Comisión {event.commission}
+              </span>
               <span className="flex items-center gap-2 text-sm">
                 <CircleDashed size={16} className="h-4 min-w-4" />
                 {event.subject}
