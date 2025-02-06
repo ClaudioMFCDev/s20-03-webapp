@@ -21,18 +21,18 @@ export default function CreateTask() {
   }
 
   return (
-    <Card className="p-4 pb-8">
+    <Card className="p-4 pb-8 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
       <form className="flex flex-col gap-2 px-5">
         {/* Input para el nombre de la tarea */}
         <div className="mt-3">
           <label htmlFor="taskName">Titulo de la Tarea</label>
-          <Input id="taskName" className="mt-4" />
+          <Input id="taskName" className="mt-4  shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]" />
         </div>
 
         {/* Input para la descripción */}
         <div className="mt-3">
           <label htmlFor="description">Descripción</label>
-          <Textarea id="description" className="mt-4" />
+          <Textarea id="description" className="mt-4  shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]" />
         </div>
 
         {/* Input para subir un archivo */}
@@ -42,7 +42,7 @@ export default function CreateTask() {
             id="file"
             type="file"
             onChange={handleFileChange}
-            className="cursor-pointer"
+            className="cursor-pointer shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
           />
           {file && (
             <p className="text-sm text-gray-500">
@@ -58,7 +58,7 @@ export default function CreateTask() {
             type="date"
             value={dueDate}
             onChange={handleDateChange}
-            className="mt-4"
+            className="mt-4 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
           />
         </div>
 

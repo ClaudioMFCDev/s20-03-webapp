@@ -15,13 +15,13 @@ interface PendingEventsProps {
 
 export const PendingEventsTeacher = ({ className }: PendingEventsProps) => {
   return (
-    <Card className={cn('h-fit w-full', className)}>
+    <Card className={cn('h-fit w-full scroll-container shadow-xl', className)}>
       <CardHeader>
         <CardTitle className="text-lg">Entregas de Alumnos</CardTitle>
       </CardHeader>
       <CardContent className="grid-rows-auto grid grid-cols-1 gap-4">
         {EVENTOS_JSON.map(event => (
-          <Card key={event.id}>
+          <Card key={event.id} className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'>
             <CardHeader className="pb-2">
               <CardTitle className="text-base">{event.title}</CardTitle>
             </CardHeader>
