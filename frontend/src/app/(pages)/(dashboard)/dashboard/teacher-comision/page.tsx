@@ -110,7 +110,7 @@ export default function TeacherPage() {
                       
                       <Input
                         type="email"
-                        placeholder="Correo electrónico"
+                        placeholder="Correo electrónico de Tutor/a - Alumno-a"
                         className="w-full shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                       />
 
@@ -133,33 +133,30 @@ export default function TeacherPage() {
         <Card className="flex h-[765px] flex-col items-center gap-7 scroll-container overflow-y-auto p-5 py-10 shadow-xl">
           <h2>Recordatorios de Comision</h2>
           <Card className="w-[90%] p-5 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
-            <CardHeader>Tarea: Titulo de la tarea</CardHeader>
+            <CardHeader>Tarea: Trabajo Practico 2 </CardHeader>
             <CardContent className="flex flex-col gap-5">
-              <p>
-                Descripcion de la tarea con toda la descripcion que puso el
-                profesor para poder rellenar ahora
+              <p className='text-sm'>
+                El Alumno Jose Martinez entrego la tarea de Matematica hace 2 horas
               </p>
               <p>Fecha de entrega: 21/5/2025</p>
             </CardContent>
             <Button className="mb-5 ml-5">Borrar</Button>
           </Card>
           <Card className="w-[90%] p-5 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
-            <CardHeader>Tarea: Titulo de la tarea</CardHeader>
+            <CardHeader>Tarea: Trabajo Practico 2 </CardHeader>
             <CardContent className="flex flex-col gap-5">
-              <p>
-                Descripcion de la tarea con toda la descripcion que puso el
-                profesor para poder rellenar ahora
+              <p className='text-sm'>
+                El Alumno Jose Martinez entrego la tarea de Matematica hace 2 minutos
               </p>
               <p>Fecha de entrega: 21/5/2025</p>
             </CardContent>
             <Button className="mb-5 ml-5">Borrar</Button>
           </Card>
           <Card className="w-[90%] p-5 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
-            <CardHeader>Tarea: Titulo de la tarea</CardHeader>
+            <CardHeader>Tarea: Trabajo Practico 2 </CardHeader>
             <CardContent className="flex flex-col gap-5">
-              <p>
-                Descripcion de la tarea con toda la descripcion que puso el
-                profesor para poder rellenar ahora
+              <p className='text-sm'>
+                El Alumno Jose Martinez entrego la tarea de Matematica hace 1 día
               </p>
               <p>Fecha de entrega: 21/5/2025</p>
             </CardContent>

@@ -15,22 +15,22 @@ const TEACHER_SCHEDULE = [
   {
     id: 2,
     subject: 'Física',
-    schedule: 'Martes y Jueves, 14:00 - 16:00',
+    schedule: 'Lunes y Miércoles, 12:00 - 13:00',
   },
   {
     id: 3,
     subject: 'Química',
-    schedule: 'Viernes, 09:00 - 11:00',
+    schedule: 'Lunes y Miércoles, 12:00, 13:00 - 15:00',
   },
   {
     id: 4,
     subject: 'Química',
-    schedule: 'Viernes, 09:00 - 11:00',
+    schedule: 'Lunes y Miércoles, 12:00, 15:00 - 16:00',
   },
   {
     id: 5,
     subject: 'Química',
-    schedule: 'Viernes, 09:00 - 11:00',
+    schedule: 'Lunes y Miércoles, 16:00, 09:00 - 17:00',
   },
 ]
 
@@ -48,7 +48,7 @@ const UPCOMING_EXAMS = [
     id: 2,
     subject: 'Física',
     commission: '5 B',
-    date: '2023-10-17',
+    date: '2023-10-15',
     time: '11:00',
     room: 'Aula 202',
   },
@@ -56,7 +56,7 @@ const UPCOMING_EXAMS = [
     id: 3,
     subject: 'Historia',
     commission: '4 C',
-    date: '2023-10-19',
+    date: '2023-10-15',
     time: '10:00',
     room: 'Aula 303',
   },
@@ -93,13 +93,14 @@ export default function PageTeacher () {
         {/* Tarjeta dividida en dos columnas */}
         <Card className="h-[500px] w-full shadow-xl"> {/* Alto aumentado */}
           <CardHeader>
-            <CardTitle className="text-lg">Materias y Próximos Exámenes</CardTitle>
+            
+            <CardTitle className="text-3xl">Bienvenido Profesor Claudio</CardTitle>
           </CardHeader>
           <CardContent className=" grid h-[calc(100%-56px)] grid-cols-1 gap-4 scroll-container overflow-hidden md:grid-cols-2">
             {/* Columna 1: Materias y Horarios */}
             <div className="space-y-4 overflow-y-auto pr-2">
-              <h3 className="text-sm font-medium text-muted-foreground">
-                Materias y Horarios
+              <h3 className="text-lg font-medium text-muted-foreground">
+                Sus Horario para hoy son
               </h3>
               {TEACHER_SCHEDULE.map(item => (
                 <div key={item.id} className="rounded-lg border p-4 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
@@ -117,8 +118,8 @@ export default function PageTeacher () {
 
             {/* Columna 2: Próximos Exámenes */}
             <div className="space-y-4 overflow-y-auto pr-2 ">
-              <h3 className="text-sm font-medium text-muted-foreground">
-                Próximos Exámenes
+              <h3 className="text-lg font-medium text-muted-foreground">
+                Examenes a tomar proximamente
               </h3>
               {UPCOMING_EXAMS.map(exam => (
                 <div key={exam.id} className="rounded-lg border p-4 shadow-[inset_2px_2px_10px_rgba(0,0,0,0.5)]">

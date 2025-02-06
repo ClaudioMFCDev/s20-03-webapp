@@ -106,15 +106,19 @@ export default function DeshboardTutor() {
             <p className="text-2xl">Total: 2 / 10</p>
           </CardContent>
         </Card>
-        <Calendar
-      mode="single"
-      selected={date}
-      onSelect={setDate}
-      locale={spanishLocale} // Pasar el objeto Locale personalizado
-      className="mb-10 flex h-96 w-80 items-center justify-center rounded-md border shadow-md lg:mb-0"
-    />
+        <div className='flex flex-col items-center'>
+            <h1 className='text-xl mb-2 font-bold'>Dias de Inasistencias y Examenes</h1>
+            <Calendar
+        mode="single"
+        selected={date}
+        onSelect={setDate}
+        locale={spanishLocale} // Pasar el objeto Locale personalizado
+        className="mb-10 flex h-96 w-80 items-center justify-center rounded-md border shadow-md lg:mb-0"
+        />  
+        </div>
       </section>
       <section className="lg:col-span-2 lg:mt-10 lg:w-[740px] xl:mt-0 xl:w-[930px] 2xl:w-[1000px]">
+        <h1 className='text-2xl mb-5 font-bold'>Calificaciones de Trabajos Practicos y Examenes</h1>
         <div className="scroll-container h-[770px] lg:overflow-y-auto">
           {materias.map((materia, materiaIndex) => (
             <Card

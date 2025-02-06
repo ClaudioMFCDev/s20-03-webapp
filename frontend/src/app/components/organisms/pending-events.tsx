@@ -17,7 +17,7 @@ export const PendingEvents = ({ className }: PendingEventsProps) => {
   return (
     <Card className="h-[683px] overflow-y-auto scroll-container shadow-xl shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
       <CardHeader>
-        <CardTitle className="text-lg">Eventos pendientes</CardTitle>
+        <CardTitle className="text-lg">Examenes y Tareas pendientes</CardTitle>
       </CardHeader>
       <CardContent className="grid-rows-auto grid grid-cols-1 gap-4 ">
         {EVENTOS_JSON.map(event => (

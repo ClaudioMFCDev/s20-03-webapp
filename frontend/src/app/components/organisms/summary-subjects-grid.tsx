@@ -22,7 +22,8 @@ export const SummarySubjectsGrid = ({
   return (
     <Card className={cn('h-fit w-full shadow-xl', className)}>
       <CardHeader>
-        <CardTitle className="text-lg">Resumen de asignaturas</CardTitle>
+        <CardTitle className="text-lg">Bienvenido Alumno Azariel</CardTitle>
+        <h1>Resumen de asignaturas</h1>
       </CardHeader>
       <CardContent className="grid grid-cols-1 gap-4 lg:grid-cols-2  ">
         {SUBJECTS_JSON.map(subject => (

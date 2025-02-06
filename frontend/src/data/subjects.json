@@ -3,36 +3,42 @@
     "id": "asig001",
     "title": "Matemáticas Avanzadas",
     "profesor_responsable_id": "prof001",
-    "location": "Aula B1-59"
+    "location": "Aula B1-59",
+    "comision": "5 A"
   },
   {
     "id": "asig002",
     "title": "Historia del Arte",
     "profesor_responsable_id": "prof002",
-    "location": "Aula B2-34"
+    "location": "Aula B2-34",
+    "comision": "5 A"
   },
   {
     "id": "asig003",
     "title": "Programación Web",
     "profesor_responsable_id": "prof003",
-    "location": "Aula C1-12"
+    "location": "Aula C1-12",
+    "comision": "7 A"
   },
   {
     "id": "asig004",
     "title": "Biología Molecular",
     "profesor_responsable_id": "prof004",
-    "location": "Aula D1-45"
+    "location": "Aula D1-45",
+    "comision": "5 B"
   },
   {
     "id": "asig005",
     "title": "Física Clásica",
     "profesor_responsable_id": "prof005",
-    "location": "Aula E2-78"
+    "location": "Aula E2-78",
+    "comision": "5 C"
   },
   {
     "id": "asig006",
     "title": "Literatura Comparada",
     "profesor_responsable_id": "prof006",
-    "location": "Aula F3-21"
+    "location": "Aula F3-21",
+    "comision": "5 C"
   }
 ]

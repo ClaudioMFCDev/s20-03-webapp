@@ -35,7 +35,7 @@ export const SummarySubjectsGridTeacher = ({
               {/* Comisión con icono */}
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Users className="h-4 w-4" /> {/* Icono de comisión */}
-                <p>Comisión: <span>6 A</span></p>
+                <p>Comisión: <span>{subject.comision}</span></p>
               </div>
 
               {/* Aula con icono */}
