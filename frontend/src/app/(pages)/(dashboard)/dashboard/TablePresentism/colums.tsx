@@ -26,7 +26,7 @@ export const columns: ColumnDef<Payment>[]  = [
 
   {
     accessorKey: 'status',
-    header: () => <div className="pr-4 text-right">Presentism</div>,
+    header: () => <div className="pr-4 text-right">Presentismo</div>,
     cell: ({ row }) => {
       const [isChecked, setIsChecked] = useState(
         row.original.status === 'success'
@@ -54,7 +54,7 @@ export const columns: ColumnDef<Payment>[]  = [
   // Nueva columna para ingresar la nota
   {
     accessorKey: 'grade',
-    header: () => <div className="text-right">Nota</div>,
+    header: () => <div className="text-right ">Nota</div>,
     cell: ({ row }) => {
       const [grade, setGrade] = useState(row.original.grade || '')
 
@@ -68,7 +68,7 @@ export const columns: ColumnDef<Payment>[]  = [
           <Input
             value={grade}
             onChange={e => handleGradeChange(e.target.value)}
-            className="w-11"
+            className="w-11 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
             min={0}
             max={10}
             step={0.1}

@@ -40,7 +40,7 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <div className="flex h-[760px] flex-col justify-between rounded-md border p-5">
+    <div className="flex h-[760px] flex-col justify-between rounded-md border p-5 ">
       <Table className="flex-1">
         <TableHeader className="">
           {table.getHeaderGroups().map(headerGroup => (
@@ -58,7 +58,7 @@ export function DataTable<TData, TValue>({
             </TableRow>
           ))}
         </TableHeader>
-        <TableBody>
+        <TableBody className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'>
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map(row => (
               <TableRow

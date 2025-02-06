@@ -61,7 +61,7 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 shadow-xl p-5 py-12">
       <div className="flex items-center">
         <Input
           placeholder="ej: no@country.com"
@@ -69,13 +69,13 @@ export function DataTable<TData, TValue>({
           onChange={event =>
             table.getColumn('email')?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="max-w-sm shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
         />
 
         <DataTableViewOptions table={table} />
       </div>
       <div className="rounded-md border">
-        <Table>
+        <Table className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'>
           <TableHeader>
             {table.getHeaderGroups().map(headerGroup => (
               <TableRow key={headerGroup.id}>

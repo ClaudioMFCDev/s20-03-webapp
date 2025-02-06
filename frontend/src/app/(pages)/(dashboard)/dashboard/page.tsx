@@ -1,26 +1,25 @@
-import { Metadata } from 'next'
-import { redirect } from 'next/navigation'
+// pages/DashboardPage.tsx
+'use client'
 
+import { redirect } from 'next/navigation'
 import { ParentDashboard } from '@/components/dashboards/parent-dashboard'
 import { StudentDashboard } from '@/components/dashboards/student-dashboard'
-import { TeacherDashboard } from '@/components/dashboards/teacher-dashboard'
 
-export const metadata: Metadata = {
-  title: 'Panel de control',
-}
-
-type Role = 'schoolAdmin' | 'teacher' | 'student' | 'parent'
-let roleFromMyDatabase: Role = 'student'
-
-const dashboards = {
-  teacher: <TeacherDashboard />,
-  student: <StudentDashboard />,
-  parent: <ParentDashboard />,
-}
+import { useUserRole } from '@/app/context/useRoleContext'
+import TeacherDashboard from '@/components/dashboards/teacher-dashboard'
+import { AdminDashboard } from '#/src/app/components/dashboards/admin-dashboard'
 
 export default function DashboardPage() {
-  if (roleFromMyDatabase === 'schoolAdmin') redirect('/dashboard/users')
+  const { userRole } = useUserRole()
 
-  const CurrentDashboard = dashboards[roleFromMyDatabase] || null
+  if (userRole === 'SchoolAdmin') redirect('/dashboard/users')
+
+  const dashboards = {
+    Teacher: <TeacherDashboard />,
+    Student: <StudentDashboard />,
+    Parent: <ParentDashboard />,
+  }
+
+  const CurrentDashboard = dashboards[userRole] || null
   return CurrentDashboard
 }
