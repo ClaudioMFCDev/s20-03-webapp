@@ -60,12 +60,13 @@ export function DataTable<TData, TValue>({
             </TableRow>
           ))}
         </TableHeader>
-        <TableBody>
+        <TableBody className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'>
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map(row => (
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() && 'selected'}
+                className=''
               >
                 {row.getVisibleCells().map(cell => (
                   <TableCell className="" key={cell.id}>
@@ -92,7 +93,7 @@ export function DataTable<TData, TValue>({
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            Previous
+            Anterior
           </Button>
           <Button
             variant="outline"
@@ -100,12 +101,12 @@ export function DataTable<TData, TValue>({
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            Next
+            Siguiente
           </Button>
         </div>
 
         <Button type="submit" className="w-[78px]">
-          Update
+          Subir
         </Button>
       </div>
     </div>

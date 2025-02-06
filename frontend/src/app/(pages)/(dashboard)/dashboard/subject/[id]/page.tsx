@@ -18,12 +18,12 @@ export default async function SubjectPage({
   const exams = await getData()
 
   return (
-    <Section component="section" className="grid grid-cols-3 gap-4">
-      <Card className="col-span-2">
+    <Section component="section" className="grid grid-cols-3 gap-4 ">
+      <Card className="col-span-2 shadow-xl">
         <CardHeader>
           <CardTitle className="text-lg">Próximas evaluaciones</CardTitle>
         </CardHeader>
-        <CardContent className="flex flex-col gap-4">
+        <CardContent className="flex flex-col gap-4 ">
           {exams.map(exam => (
             <ExamCard
               // key={exam.id}
@@ -38,10 +38,10 @@ export default async function SubjectPage({
         </CardContent>
       </Card>
 
-      <div className="col-span-1 flex flex-col gap-4">
+      <div className="col-span-1 flex flex-col gap-4 ">
         <SubjectCard
           id={params.id}
-          title="Matemáticas avanzadas"
+          title="Matemáticas III"
           teacher="Augusta Ada Byron"
           location="Aula B1-59"
           defaultOpen

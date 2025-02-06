@@ -38,7 +38,7 @@ export default function TeacherPage() {
     <Section className="flex flex-col" component={'section'}>
       <h1 className="mb-5 text-2xl sm:text-3xl">Curso 5A - Matematica</h1>
       <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <div className="h-full w-full md:w-[400px]">
+        <div className="h-full w-full md:w-[400px] shadow-xl scroll-container">
           <DataTable
             columns={columns}
             data={studentsData}
@@ -53,7 +53,7 @@ export default function TeacherPage() {
             transition={{ duration: 0.5 }}
             className="border-none"
           >
-            <Card className="w-full cursor-pointer border-none">
+            <Card className="w-full cursor-pointer border-none shadow-xl">
               <CardHeader>
                 <Button
                   className="w-full text-lg font-bold"
@@ -87,7 +87,7 @@ export default function TeacherPage() {
             transition={{ duration: 0.5 }}
             className="border-none"
           >
-            <Card className="w-full cursor-pointer border-none">
+            <Card className="w-full cursor-pointer border-none shadow-xl">
               <CardHeader>
                 <Button
                   className="w-full text-lg font-bold"
@@ -104,19 +104,20 @@ export default function TeacherPage() {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
+                    
                   >
                     <CardContent className="space-y-4">
                       
                       <Input
                         type="email"
                         placeholder="Correo electrónico"
-                        className="w-full"
+                        className="w-full shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                       />
 
                       
                       <Textarea
                         placeholder="Escribe tu mensaje aquí..."
-                        className="w-full"
+                        className="w-full shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                       />
 
                       
@@ -129,9 +130,9 @@ export default function TeacherPage() {
           </motion.div>
         </div>
 
-        <Card className="flex h-[765px] flex-col items-center gap-7 overflow-y-auto p-5">
+        <Card className="flex h-[765px] flex-col items-center gap-7 scroll-container overflow-y-auto p-5 py-10 shadow-xl">
           <h2>Recordatorios de Comision</h2>
-          <Card className="w-[90%] p-5">
+          <Card className="w-[90%] p-5 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
             <CardHeader>Tarea: Titulo de la tarea</CardHeader>
             <CardContent className="flex flex-col gap-5">
               <p>
@@ -140,10 +141,33 @@ export default function TeacherPage() {
               </p>
               <p>Fecha de entrega: 21/5/2025</p>
             </CardContent>
-            <Button className="mb-5 ml-5">Deleted</Button>
+            <Button className="mb-5 ml-5">Borrar</Button>
+          </Card>
+          <Card className="w-[90%] p-5 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
+            <CardHeader>Tarea: Titulo de la tarea</CardHeader>
+            <CardContent className="flex flex-col gap-5">
+              <p>
+                Descripcion de la tarea con toda la descripcion que puso el
+                profesor para poder rellenar ahora
+              </p>
+              <p>Fecha de entrega: 21/5/2025</p>
+            </CardContent>
+            <Button className="mb-5 ml-5">Borrar</Button>
+          </Card>
+          <Card className="w-[90%] p-5 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
+            <CardHeader>Tarea: Titulo de la tarea</CardHeader>
+            <CardContent className="flex flex-col gap-5">
+              <p>
+                Descripcion de la tarea con toda la descripcion que puso el
+                profesor para poder rellenar ahora
+              </p>
+              <p>Fecha de entrega: 21/5/2025</p>
+            </CardContent>
+            <Button className="mb-5 ml-5">Borrar</Button>
           </Card>
           
         </Card>
+        
       </section>
     </Section>
   )

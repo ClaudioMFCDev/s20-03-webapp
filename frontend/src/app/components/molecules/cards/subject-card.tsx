@@ -36,7 +36,7 @@ export const SubjectCard = ({
   defaultOpen = false,
 }: SubjectCardProps) => {
   return (
-    <Card className="h-fit">
+    <Card className="h-fit shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
       <CardHeader className="pb-2">
         <CardTitle className="text-base">
           <Link
@@ -54,9 +54,9 @@ export const SubjectCard = ({
           </Link>
         </CardTitle>
       </CardHeader>
-      <CardContent className="ml-1 flex flex-col pb-2">
+      <CardContent className="ml-1 flex flex-col pb-2 ">
         <span className="flex items-center gap-2 text-sm">
-          <Contact size={16} className="h-4 min-w-4" />
+          <Contact size={16} className="h-4 min-w-4 " />
           {teacher}
         </span>
         <span className="flex items-center gap-2 text-sm">
@@ -74,10 +74,10 @@ export const SubjectCard = ({
             Resumen de calificaciones
           </CollapsibleTrigger>
           <CollapsibleContent>
-            <div className="flex gap-2">
-              {Array.from({ length: 5 })
+            <div className="flex gap-2  ">
+              {Array.from({ length: 6 })
                 .fill()
-                .map((_, index) => index + 1)
+                .map((_, index) => index + 5)
                 .map(index => (
                   <div
                     key={index}

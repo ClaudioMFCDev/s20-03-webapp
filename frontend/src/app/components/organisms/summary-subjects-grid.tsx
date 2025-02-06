@@ -20,11 +20,11 @@ export const SummarySubjectsGrid = ({
   randomTips = false,
 }: SummarySubjectsGridProps) => {
   return (
-    <Card className={cn('h-fit w-full', className)}>
+    <Card className={cn('h-fit w-full shadow-xl', className)}>
       <CardHeader>
         <CardTitle className="text-lg">Resumen de asignaturas</CardTitle>
       </CardHeader>
-      <CardContent className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+      <CardContent className="grid grid-cols-1 gap-4 lg:grid-cols-2  ">
         {SUBJECTS_JSON.map(subject => (
           <SubjectCard
             key={subject.id}

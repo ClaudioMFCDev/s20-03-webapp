@@ -1,10 +1,11 @@
 import { Section } from '@/components/atoms/section'
-import PageAdmin from '../../(pages)/(dashboard)/dashboard/table-subject/page'
+import UsersPage from '../../(pages)/(dashboard)/dashboard/users/page'
 
-export const ParentDashboard = () => {
+
+export const AdminDashboard = () => {
   return (
     <Section>
-      <PageAdmin/>
+      <UsersPage/>
     </Section>
   )
 }

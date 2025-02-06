@@ -1,3 +1,4 @@
+
 import { payments } from '@/data/payments.data'
 
 import { columns } from './colums'

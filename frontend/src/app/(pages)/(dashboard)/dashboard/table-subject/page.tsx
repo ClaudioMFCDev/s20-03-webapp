@@ -29,6 +29,87 @@ const initialData: User[] = [
     telefonoTutor: '987654321',
     correoTutor: 'carlos.gomez@example.com',
   },
+  {
+    type: 'alumno',
+    dni: '87654321',
+    celular: '987654321',
+    nombreApellido: 'Ana Gómez',
+    nombreTutor: 'Carlos Gómez',
+    dniTutor: '23456789',
+    telefonoTutor: '987654321',
+    correoTutor: 'carlos.gomez@example.com',
+  },
+  {
+    type: 'alumno',
+    dni: '87654321',
+    celular: '987654321',
+    nombreApellido: 'Ana Gómez',
+    nombreTutor: 'Carlos Gómez',
+    dniTutor: '23456789',
+    telefonoTutor: '987654321',
+    correoTutor: 'carlos.gomez@example.com',
+  },
+  {
+    type: 'alumno',
+    dni: '87654321',
+    celular: '987654321',
+    nombreApellido: 'Ana Gómez',
+    nombreTutor: 'Carlos Gómez',
+    dniTutor: '23456789',
+    telefonoTutor: '987654321',
+    correoTutor: 'carlos.gomez@example.com',
+  },
+  {
+    type: 'alumno',
+    dni: '87654321',
+    celular: '987654321',
+    nombreApellido: 'Ana Gómez',
+    nombreTutor: 'Carlos Gómez',
+    dniTutor: '23456789',
+    telefonoTutor: '987654321',
+    correoTutor: 'carlos.gomez@example.com',
+  },
+  {
+    type: 'alumno',
+    dni: '87654321',
+    celular: '987654321',
+    nombreApellido: 'Ana Gómez',
+    nombreTutor: 'Carlos Gómez',
+    dniTutor: '23456789',
+    telefonoTutor: '987654321',
+    correoTutor: 'carlos.gomez@example.com',
+  },
+  {
+    type: 'alumno',
+    dni: '87654321',
+    celular: '987654321',
+    nombreApellido: 'Ana Gómez',
+    nombreTutor: 'Carlos Gómez',
+    dniTutor: '23456789',
+    telefonoTutor: '987654321',
+    correoTutor: 'carlos.gomez@example.com',
+  },
+  {
+    type: 'alumno',
+    dni: '87654321',
+    celular: '987654321',
+    nombreApellido: 'Ana Gómez',
+    nombreTutor: 'Carlos Gómez',
+    dniTutor: '23456789',
+    telefonoTutor: '987654321',
+    correoTutor: 'carlos.gomez@example.com',
+  },
+  {
+    type: 'alumno',
+    dni: '87654321',
+    celular: '987654321',
+    nombreApellido: 'Ana Gómez',
+    nombreTutor: 'Carlos Gómez',
+    dniTutor: '23456789',
+    telefonoTutor: '987654321',
+    correoTutor: 'carlos.gomez@example.com',
+  },
+
 ]
 
 export default function PageAdmin() {
@@ -96,12 +177,12 @@ export default function PageAdmin() {
         {comisionNombre ? `Comisión: ${comisionNombre}` : 'Seleccione una comisión'}
       </h1>
 
-      <div className="flex gap-4 mb-5">
+      <div className="flex gap-4 mb-5 ">
         <Input
           placeholder="Nombre de la comisión"
           value={comisionNombre}
           onChange={(e) => setComisionNombre(e.target.value)}
-          className="w-1/3"
+          className="w-1/3 shadow-xl"
         />
         <Button onClick={() => setIsFormOpen(!isFormOpen)}>
           Agregar Usuario
@@ -114,15 +195,15 @@ export default function PageAdmin() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="mb-5 rounded-lg border p-5"
+            className="mb-5 rounded-lg border p-5 shadow-xl"
           >
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 ">
               <div>
                 <Label>Tipo de Usuario</Label>
                 <select
                   value={newUser.type}
                   onChange={handleTypeChange}
-                  className="w-full rounded-md border p-2"
+                  className="w-full rounded-md p-2 border-2"
                 >
                   <option value="profesor">Profesor</option>
                   <option value="alumno">Alumno</option>
@@ -135,6 +216,7 @@ export default function PageAdmin() {
                   value={newUser.nombreApellido}
                   onChange={handleInputChange}
                   required
+                  className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
                 />
               </div>
               {newUser.type === 'profesor' && (
@@ -145,6 +227,7 @@ export default function PageAdmin() {
                     value={newUser.materia}
                     onChange={handleInputChange}
                     required
+                    className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
                   />
                 </div>
               )}
@@ -155,6 +238,7 @@ export default function PageAdmin() {
                   value={newUser.dni}
                   onChange={handleInputChange}
                   required
+                  className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
                 />
               </div>
               <div>
@@ -164,6 +248,7 @@ export default function PageAdmin() {
                   value={newUser.celular}
                   onChange={handleInputChange}
                   required
+                  className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
                 />
               </div>
               {newUser.type === 'profesor' && (
@@ -174,6 +259,7 @@ export default function PageAdmin() {
                     value={newUser.correo}
                     onChange={handleInputChange}
                     required
+                    className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
                   />
                 </div>
               )}
@@ -186,6 +272,7 @@ export default function PageAdmin() {
                       value={newUser.nombreTutor}
                       onChange={handleInputChange}
                       required
+                      className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
                     />
                   </div>
                   <div>
@@ -195,6 +282,7 @@ export default function PageAdmin() {
                       value={newUser.dniTutor}
                       onChange={handleInputChange}
                       required
+                      className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
                     />
                   </div>
                   <div>
@@ -204,6 +292,7 @@ export default function PageAdmin() {
                       value={newUser.telefonoTutor}
                       onChange={handleInputChange}
                       required
+                      className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
                     />
                   </div>
                   <div>
@@ -213,6 +302,7 @@ export default function PageAdmin() {
                       value={newUser.correoTutor}
                       onChange={handleInputChange}
                       required
+                      className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
                     />
                   </div>
                 </>
@@ -228,6 +318,7 @@ export default function PageAdmin() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
+        className='scroll-container shadow-xl'
       >
         <DataTable
           columns={columns({ handleSave, handleDelete, editingIndex, setEditingIndex })}
