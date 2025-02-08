@@ -18,6 +18,9 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 
+import { useLogout } from '@/lib/auth' // ✅ Importa la función de logout
+
+
 export function DropDownUser({
   user,
 }: {
@@ -28,6 +31,8 @@ export function DropDownUser({
   }
 }) {
   const { isMobile } = useSidebar()
+  const logout = useLogout() // ✅ Usa la función de logout
+
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -83,7 +88,7 @@ export function DropDownUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onSelect={logout}> {/* ✅ Cerrar sesión */}
               <LogOut />
               Cerrar sesión
             </DropdownMenuItem>
