@@ -5,80 +5,86 @@ const groupModel = require("../db/models/groupModel");
 const attendanceModel = require("../db/models/attendanceModel");
 const gradingModel = require("../db/models/gradingModel");
 const homeworkModel = require("../db/models/homeworkModel");
+const notificationModel = require("../db/models/notificationModel");
+const userModel = require("../db/models/userModel");
 const responses = require("../utils/responses");
 const mongoose = require("mongoose"); // Importar Mongoose
 
 const studentsController = {
   getSubjectsHomeworksAndNotif: async (req, res) => {
     try {
-      // Paso 1: Obtener los groups (comisiones) donde participa el estudiante
       const student = req.user.id;
-      console.log('student id', student);
-      const groups = await groupModel.find({ students: student }).exec();
-      console.log("los group en los que participa el estudiante", groups);
-
-      if (groups.length === 0) {
-        return res
-          .status(404)
-          .json({ message: "No tienes grupos o comisiones asignadas." });
+  
+      // Paso 1: Obtener el grupo del estudiante y sus materias
+      const group = await groupModel.findOne({ students: student })
+        .select("title description levelId")
+        .populate({
+          path: "levelId",
+          select: "_id title description subjects",
+          populate: {
+            path: "subjects",
+            select: "_id title description",
+          },
+        })
+        .exec();
+  
+      if (!group) {
+        return res.status(404).json({ message: "No tienes grupos asignados." });
       }
-
-      // Buscar las subjects
-      const levels = levelModel.find({})
-
-      // Paso 2: Buscar las tareas relacionadas con las materias del profesor
+  
+      const level = group.levelId;
+      const subjects = level.subjects;
+  
+      // Paso 2: Buscar las tareas relacionadas con las materias del estudiante
       const homeworks = await homeworkModel
         .find({
           subjectId: { $in: subjects.map((subject) => subject._id) },
         })
+        .select("title description endDate subjectId") // Agregamos subjectId
         .exec();
-
-      // Paso 3: Buscar las notificaciones relacionadas con las materias y los estudiantes
+  
+      // Paso 3: Buscar las notificaciones dirigidas al estudiante
       const notifications = await notificationModel
-        .find({
-          subjectId: { $in: subjects.map((subject) => subject._id) },
-        })
-        .populate("studentId", "name lastname") // Poblar el estudiante para obtener el nombre y apellido
+        .find({ studentId: student }) // Solo buscar para este estudiante
+        .select("title message subjectId") // Seleccionamos los campos necesarios
+        .populate("subjectId", "title description") // Poblar datos de la materia
         .exec();
-
-      // Paso 4: Formatear la respuesta
-      const result = subjects.map((subject) => {
-        // Filtrar las tareas y notificaciones relacionadas con la materia
-        const subjectHomeworks = homeworks.filter(
-          (hw) => hw.subjectId.toString() === subject._id.toString()
-        );
-        const subjectNotifications = notifications.filter(
-          (notification) =>
-            notification.subjectId.toString() === subject._id.toString()
-        );
-
-        return {
+  
+      // 🔥 Revisar si los datos están correctos antes de enviarlos
+      console.log("Subjects:", subjects);
+      console.log("Homeworks:", homeworks);
+      console.log("Notifications:", notifications);
+  
+      // Paso 4: Estructurar la respuesta
+      res.status(200).json({
+        subjects: subjects.map((subject) => ({
+          _id: subject._id,
           title: subject.title,
           description: subject.description,
-          homeworks: subjectHomeworks.length
-            ? subjectHomeworks.map((hw) => ({
-                title: hw.title,
-                description: hw.description,
-                endDate: hw.endDate,
-              }))
-            : [], // Asegurarse de que esté vacío si no tiene tareas
-          notifications: subjectNotifications.length
-            ? subjectNotifications.map((notification) => ({
-                title: notification.title,
-                message: notification.message,
-                studentName: `${notification.studentId.name} ${notification.studentId.lastname}`,
-                subjectTitle: subject.title,
-              }))
-            : [], // Asegurarse de que esté vacío si no tiene notificaciones
-        };
+        })),
+        homeworks: homeworks.map((hw) => ({
+          _id: hw._id,
+          title: hw.title,
+          description: hw.description,
+          endDate: hw.endDate,
+          subjectId: hw.subjectId, // Para relacionarlo con subjects
+        })),
+        notifications: notifications.map((notification) => ({
+          _id: notification._id,
+          title: notification.title,
+          message: notification.message,
+          subject: notification.subjectId, // Ya poblado con title y description
+        })),
       });
-      console.log(subjects);
-      res.status(200).json({ subjects: result });
     } catch (err) {
       console.error("Error en la consulta:", err);
       res.status(500).json({ error: "Error al obtener los datos" });
     }
-  },
+  }
+  ,
+
+
+
   getStudentCourses: async (req, res) => {
     try {
       const studentId = req.user.id; // ID del estudiante autenticado
@@ -140,11 +146,9 @@ const studentsController = {
 
       // 3️⃣ Validar si hay asistencias registradas
       if (attendances.length === 0) {
-        return res
-          .status(404)
-          .json({
-            message: "No hay asistencias registradas para esta materia.",
-          });
+        return res.status(404).json({
+          message: "No hay asistencias registradas para esta materia.",
+        });
       }
 
       // 4️⃣ Formatear la respuesta para mostrar solo lo necesario
@@ -189,12 +193,10 @@ const studentsController = {
 
       // 3️⃣ Validar si hay asistencias registradas
       if (gradings.length === 0) {
-        return res
-          .status(404)
-          .json({
-            message:
-              "No hay examenes y/o trabajos prácticos registradas para esta materia.",
-          });
+        return res.status(404).json({
+          message:
+            "No hay examenes y/o trabajos prácticos registradas para esta materia.",
+        });
       }
 
       // 4️⃣ Formatear la respuesta para mostrar solo lo necesario
@@ -233,11 +235,9 @@ const studentsController = {
 
       // 3️⃣ Validar si hay asistencias registradas
       if (homeworks.length === 0) {
-        return res
-          .status(404)
-          .json({
-            message: "No hay tareas pendientes para este grupo-comision.",
-          });
+        return res.status(404).json({
+          message: "No hay tareas pendientes para este grupo-comision.",
+        });
       }
 
       // 4️⃣ Formatear la respuesta para mostrar solo lo necesario
