@@ -20,12 +20,12 @@ const TEACHER_SCHEDULE = [
   {
     id: 3,
     subject: 'Química',
-    schedule: 'Lunes y Miércoles, 12:00, 13:00 - 15:00',
+    schedule: 'Lunes y Miércoles, 13:00 - 15:00',
   },
   {
     id: 4,
     subject: 'Química',
-    schedule: 'Lunes y Miércoles, 12:00, 15:00 - 16:00',
+    schedule: 'Lunes y Miércoles, 15:00 - 16:00',
   },
   {
     id: 5,

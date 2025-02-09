@@ -13,7 +13,7 @@ type UserRoleContextType = {
 const UserRoleContext = createContext<UserRoleContextType | undefined>(undefined)
 
 export const UserRoleProvider = ({ children }: { children: React.ReactNode }) => {
-  const [userRole, setUserRole] = useState<Role>('Teacher')
+  const [userRole, setUserRole] = useState<Role>('SchoolAdmin')
 
   return (
     <UserRoleContext.Provider value={{ userRole, setUserRole }}>
