@@ -123,7 +123,6 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
 <table align="center">
   <tr>
     <td align="center"><img src="https://avatars.githubusercontent.com/u/73679190?v=4" width="100"></td>
-    <td align="center"><img src="https://avatars.githubusercontent.com/u/118488055?v=4" width="100"></td>
     <td align="center"><img src="https://avatars.githubusercontent.com/u/141194661?v=4" width="100"></td>
   </tr>
   <tr>
