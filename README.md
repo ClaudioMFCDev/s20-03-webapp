@@ -128,10 +128,8 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
 
 <div align="center">
   <h2 style="font-size: 48px;">Equipo</h2>
-  <img src="./frontend/public/logo-negative.svg" width="800px" alt="Logo">
+  <img src="./frontend/public/logo-negative.svg" width="600px" alt="Logo">
 </div>
-
-<h3 align="center"><strong>Integrantes principales</strong></h3>
 
 <h3 align="center"><strong>Integrantes principales</strong></h3>
 
