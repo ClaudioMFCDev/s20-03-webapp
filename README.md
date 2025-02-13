@@ -78,7 +78,7 @@ Descubre las principales funcionalidades de <em>ClassRun</em> en este vídeo: <b
 
 ### Backend
 
-![Node.js][Node.js]![Express]![MongoDB][MongoDB]![JSONWebToken][JSONWebToken]
+![Node.js][Node.js] ![Express][Express] ![MongoDB][MongoDB] ![JSONWebToken][JSONWebToken]
 
 ### Frontend
 
@@ -107,9 +107,8 @@ Si tiene algún comentario, sugerencia o problema, [abra un issue](https://githu
 
 Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las funcionalidades que planeamos agregar son:
 
-- Understand eleventh-one fires flattened ideal Elfs cozy? For Dwarrowdelf debt. Merely riders become miss escape bind Dale.
-- Understand eleventh-one fires flattened ideal Elfs cozy? For Dwarrowdelf debt. Merely riders become miss escape bind Dale.
-- Understand eleventh-one fires flattened ideal Elfs cozy? For Dwarrowdelf debt. Merely riders become miss escape bind Dale.
+- Reset de nombre de usuario y password
+- Auto registro por parte de estudiantes, tutores y profesores
 
 <br><br>
 
@@ -248,3 +247,4 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
 [Node.js]: https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white
 [Express]: https://img.shields.io/badge/express.js-000000?style=for-the-badge&logo=express&logoColor=white
 [MongoDB]: https://img.shields.io/badge/-MongoDB-13aa52?style=for-the-badge&logo=mongodb&logoColor=white
+[JSONWebToken]: https://img.shields.io/badge/JSONWebToken-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white
