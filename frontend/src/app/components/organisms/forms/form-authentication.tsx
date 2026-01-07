@@ -32,7 +32,7 @@ export const FormAuthentication = () => {
     },
   })
 
-  const onSubmit = form.handleSubmit(data => {
+  const onSubmit = form.handleSubmit((data) => {
     // alert(JSON.stringify(data, undefined, 2))
     toast({
       title: 'No disponible',

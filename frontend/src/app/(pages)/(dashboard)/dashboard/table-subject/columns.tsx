@@ -1,9 +1,9 @@
 'use client'
 
 import { type ColumnDef } from '@tanstack/react-table'
-import { Badge } from '#/src/app/components/ui/badge'
-import { Button } from '#/src/app/components/ui/button'
-import { Input } from '#/src/app/components/ui/input'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
 export type User = {
   type: 'profesor' | 'alumno'
@@ -21,8 +21,8 @@ export type User = {
 type ColumnConfig = {
   accessorKey: keyof User
   header: string
-  editableFor?: ('profesor' | 'alumno')[] 
-  isBadge?: boolean 
+  editableFor?: ('profesor' | 'alumno')[]
+  isBadge?: boolean
 }
 
 const generateColumns = ({
@@ -85,72 +85,81 @@ const generateColumns = ({
     },
   ]
 
-  return columnConfigs.map((config) => ({
-    accessorKey: config.accessorKey,
-    header: config.header,
-    cell: ({ row }) => {
-      const user = row.original
-      const index = row.index
-      const isEditing = editingIndex === index
-      const isEditable = config.editableFor?.includes(user.type)
-
-      if (isEditing && isEditable) {
-        return (
-          <Input
-            defaultValue={String(user[config.accessorKey] || '')}
-            onChange={(e) => {
-              const updatedUser = { ...user, [config.accessorKey]: e.target.value }
-              row.original = updatedUser
-            }}
-          />
-        )
-      }
-
-      if (config.isBadge) {
-        return <Badge variant="default">{String(user[config.accessorKey])}</Badge>
-      }
-
-      return user[config.accessorKey] || '-'
-    },
-  })).concat([
-    {
-      id: 'actions',
-      header: 'Acciones',
-      cell: ({ row }) => {
+  return columnConfigs
+    .map((config) => ({
+      accessorKey: config.accessorKey,
+      header: config.header,
+      // Aquí ya tenías el : any, lo dejamos igual
+      cell: ({ row }: any) => {
+        const user = row.original
         const index = row.index
         const isEditing = editingIndex === index
+        const isEditable = config.editableFor?.includes(user.type)
 
-        return (
-          <div className="flex gap-2">
-            {isEditing ? (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => handleSave(index, row.original)}
-              >
-                Guardar
-              </Button>
-            ) : (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setEditingIndex(index)}
-              >
-                Editar
-              </Button>
-            )}
-            <Button
-              variant="destructive"
-              size="sm"
-              onClick={() => handleDelete(index)}
-            >
-              Eliminar
-            </Button>
-          </div>
-        )
+        if (isEditing && isEditable) {
+          return (
+            <Input
+              defaultValue={String(user[config.accessorKey] || '')}
+              onChange={(e) => {
+                const updatedUser = {
+                  ...user,
+                  [config.accessorKey]: e.target.value,
+                }
+                row.original = updatedUser
+              }}
+            />
+          )
+        }
+
+        if (config.isBadge) {
+          return (
+            <Badge variant="default">{String(user[config.accessorKey])}</Badge>
+          )
+        }
+
+        return user[config.accessorKey] || '-'
       },
-    },
-  ]) as ColumnDef<User>[]
+    }))
+    .concat([
+      {
+        id: 'actions',
+        header: 'Acciones',
+        // ARREGLO 1: Agregamos : any aquí también
+        cell: ({ row }: any) => {
+          const index = row.index
+          const isEditing = editingIndex === index
+
+          return (
+            <div className="flex gap-2">
+              {isEditing ? (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => handleSave(index, row.original)}
+                >
+                  Guardar
+                </Button>
+              ) : (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setEditingIndex(index)}
+                >
+                  Editar
+                </Button>
+              )}
+              <Button
+                variant="destructive"
+                size="sm"
+                onClick={() => handleDelete(index)}
+              >
+                Eliminar
+              </Button>
+            </div>
+          )
+        },
+      } as any, // ARREGLO 2: Forzamos al objeto a ser 'any' para que acepte 'id'
+    ]) as ColumnDef<User>[]
 }
 
 export const columns = generateColumns

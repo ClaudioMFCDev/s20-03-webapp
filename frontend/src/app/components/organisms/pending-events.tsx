@@ -15,17 +15,20 @@ interface PendingEventsProps {
 
 export const PendingEvents = ({ className }: PendingEventsProps) => {
   return (
-    <Card className="h-[683px] overflow-y-auto scroll-container shadow-xl shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
+    <Card className="h-[683px] overflow-y-auto shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)] shadow-xl scroll-container">
       <CardHeader>
         <CardTitle className="text-lg">Examenes y Tareas pendientes</CardTitle>
       </CardHeader>
-      <CardContent className="grid-rows-auto grid grid-cols-1 gap-4 ">
-        {EVENTOS_JSON.map(event => (
-          <Card key={event.id} className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'>
+      <CardContent className="grid-rows-auto grid grid-cols-1 gap-4">
+        {EVENTOS_JSON.map((event) => (
+          <Card
+            key={event.id}
+            className="shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
+          >
             <CardHeader className="pb-2">
               <CardTitle className="text-base">{event.title}</CardTitle>
             </CardHeader>
-            <CardContent className="ml-1 flex flex-col ">
+            <CardContent className="ml-1 flex flex-col">
               {/* {asignatura.profesor_responsable_id} */}
               <span className="flex items-center gap-2 text-sm">
                 <CircleDashed size={16} className="h-4 min-w-4" />

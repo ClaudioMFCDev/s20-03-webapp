@@ -15,9 +15,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
         enableSystem
         disableTransitionOnChange
       >
-        
-          <SidebarProvider>{children}</SidebarProvider>
-        
+        <SidebarProvider>{children}</SidebarProvider>
       </ThemeProvider>
     </>
   )

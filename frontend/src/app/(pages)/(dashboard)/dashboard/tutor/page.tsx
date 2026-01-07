@@ -1,41 +1,13 @@
 'use client'
 
 import React from 'react'
-
+import { es } from 'date-fns/locale'
 import { Calendar } from '@/components/ui/calendar'
 import { Section } from '#/src/app/components/atoms/section'
 import { Card, CardContent, CardTitle } from '#/src/app/components/ui/card'
 
-
-const spanishLocale = {
-    localize: {
-      month: (n: number) =>
-        [
-          'Enero',
-          'Febrero',
-          'Marzo',
-          'Abril',
-          'Mayo',
-          'Junio',
-          'Julio',
-          'Agosto',
-          'Septiembre',
-          'Octubre',
-          'Noviembre',
-          'Diciembre',
-        ][n],
-      day: (n: number) =>
-        ['D', 'L', 'M', 'M', 'J', 'V', 'S'][n],
-    },
-    formatLong: {
-      date: () => 'dd/MM/yyyy',
-    },
-  }
-  
-
 export default function DeshboardTutor() {
   const [date, setDate] = React.useState<Date | undefined>(new Date())
-  
 
   const circles = Array.from({ length: 18 }, (_, index) => index + 1)
 
@@ -90,8 +62,6 @@ export default function DeshboardTutor() {
     },
   ]
 
-  
-
   return (
     <Section className="mt-10 grid justify-center xl:ml-7 xl:flex xl:items-center xl:justify-center 2xl:ml-0 2xl:w-full 2xl:grid-cols-3">
       <section className="b flex flex-col md:flex-row md:gap-52 lg:w-[930px] lg:gap-72 xl:w-[30%] xl:flex-col xl:justify-start xl:gap-16 2xl:mr-10 2xl:items-start">
@@ -106,20 +76,24 @@ export default function DeshboardTutor() {
             <p className="text-2xl">Total: 2 / 10</p>
           </CardContent>
         </Card>
-        <div className='flex flex-col items-center'>
-            <h1 className='text-xl mb-2 font-bold'>Dias de Inasistencias y Examenes</h1>
-            <Calendar
-        mode="single"
-        selected={date}
-        onSelect={setDate}
-        locale={spanishLocale} // Pasar el objeto Locale personalizado
-        className="mb-10 flex h-96 w-80 items-center justify-center rounded-md border shadow-md lg:mb-0"
-        />  
+        <div className="flex flex-col items-center">
+          <h1 className="mb-2 text-xl font-bold">
+            Dias de Inasistencias y Examenes
+          </h1>
+          <Calendar
+            mode="single"
+            selected={date}
+            onSelect={setDate}
+            locale={es} // Pasar el objeto Locale personalizado
+            className="mb-10 flex h-96 w-80 items-center justify-center rounded-md border shadow-md lg:mb-0"
+          />
         </div>
       </section>
       <section className="lg:col-span-2 lg:mt-10 lg:w-[740px] xl:mt-0 xl:w-[930px] 2xl:w-[1000px]">
-        <h1 className='text-2xl mb-5 font-bold'>Calificaciones de Trabajos Practicos y Examenes</h1>
-        <div className="scroll-container h-[770px] lg:overflow-y-auto">
+        <h1 className="mb-5 text-2xl font-bold">
+          Calificaciones de Trabajos Practicos y Examenes
+        </h1>
+        <div className="h-[770px] scroll-container lg:overflow-y-auto">
           {materias.map((materia, materiaIndex) => (
             <Card
               key={materiaIndex}
@@ -143,7 +117,7 @@ export default function DeshboardTutor() {
                   ))}
                 </span>
               </div>
-              <section className=" flex flex-col items-center gap-2 lg:mt-3 lg:w-[950px] lg:flex-row lg:items-center lg:justify-center lg:gap-2 lg:px-5 xl:text-xs 2xl:gap-3">
+              <section className="flex flex-col items-center gap-2 lg:mt-3 lg:w-[950px] lg:flex-row lg:items-center lg:justify-center lg:gap-2 lg:px-5 xl:text-xs 2xl:gap-3">
                 {circles.map((_, index) => {
                   const isBigCircle = (index + 1) % 3 === 0
                   return (

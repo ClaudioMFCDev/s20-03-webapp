@@ -25,7 +25,7 @@ export const ExamCard = ({
   group,
 }: ExamCardProps) => {
   return (
-    <Card className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'>
+    <Card className="shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
       <CardHeader className="pb-2">
         <CardTitle className="text-base">{title}</CardTitle>
       </CardHeader>

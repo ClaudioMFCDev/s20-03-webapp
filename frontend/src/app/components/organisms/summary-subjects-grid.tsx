@@ -22,25 +22,23 @@ export const SummarySubjectsGrid = ({
   className,
   randomTips = false,
 }: SummarySubjectsGridProps) => {
+  const [studentName, setStudentName] = useState('Alumno')
 
-  const [studentName, setStudentName] = useState('Alumno');
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user')
 
-  useEffect( ()=> {
-    const storedUser = localStorage.getItem('user');
-
-    if (storedUser && storedUser !== "undefined") {
+    if (storedUser && storedUser !== 'undefined') {
       try {
-        const parsedUser = JSON.parse(storedUser);
+        const parsedUser = JSON.parse(storedUser)
 
         if (parsedUser.name) {
-          setStudentName(parsedUser.name); 
+          setStudentName(parsedUser.name)
         }
-      } catch (error){
-        console.error("Error al cargar el nombre del estudiante", error);
+      } catch (error) {
+        console.error('Error al cargar el nombre del estudiante', error)
       }
     }
-  }, [] );
-
+  }, [])
 
   return (
     <Card className={cn('h-fit w-full shadow-xl', className)}>
@@ -48,8 +46,8 @@ export const SummarySubjectsGrid = ({
         <CardTitle className="text-lg">Bienvenido, {studentName}</CardTitle>
         <h1>Resumen de asignaturas</h1>
       </CardHeader>
-      <CardContent className="grid grid-cols-1 gap-4 lg:grid-cols-2  ">
-        {SUBJECTS_JSON.map(subject => (
+      <CardContent className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+        {SUBJECTS_JSON.map((subject) => (
           <SubjectCard
             key={subject.id}
             id={subject.id}

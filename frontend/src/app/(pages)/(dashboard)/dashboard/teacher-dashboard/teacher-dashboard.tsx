@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { Section } from '@/components/atoms/section'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { PendingEventsTeacher } from '@/components/organisms/pendings-events-teacher'
@@ -86,30 +86,38 @@ const UPCOMING_EXAMS = [
   },
 ]
 
-export default function PageTeacher () {
+export default function PageTeacher() {
   return (
-    <Section className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-20">
+    <Section className="mb-20 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <div className="flex flex-col gap-4 sm:col-span-1 lg:col-span-2">
         {/* Tarjeta dividida en dos columnas */}
-        <Card className="h-[500px] w-full shadow-xl"> {/* Alto aumentado */}
+        <Card className="h-[500px] w-full shadow-xl">
+          {' '}
+          {/* Alto aumentado */}
           <CardHeader>
-            
-            <CardTitle className="text-3xl">Bienvenido Profesor Claudio</CardTitle>
+            <CardTitle className="text-3xl">
+              Bienvenido Profesor Claudio
+            </CardTitle>
           </CardHeader>
-          <CardContent className=" grid h-[calc(100%-56px)] grid-cols-1 gap-4 scroll-container overflow-hidden md:grid-cols-2">
+          <CardContent className="grid h-[calc(100%-56px)] grid-cols-1 gap-4 overflow-hidden scroll-container md:grid-cols-2">
             {/* Columna 1: Materias y Horarios */}
             <div className="space-y-4 overflow-y-auto pr-2">
               <h3 className="text-lg font-medium text-muted-foreground">
                 Sus Horario para hoy son
               </h3>
-              {TEACHER_SCHEDULE.map(item => (
-                <div key={item.id} className="rounded-lg border p-4 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
+              {TEACHER_SCHEDULE.map((item) => (
+                <div
+                  key={item.id}
+                  className="rounded-lg border p-4 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
+                >
                   <div className="flex items-center gap-2 text-sm font-medium">
-                    <BookOpen className="h-4 w-4 text-muted-foreground" /> {/* Icono de materia */}
+                    <BookOpen className="h-4 w-4 text-muted-foreground" />{' '}
+                    {/* Icono de materia */}
                     <span>{item.subject}</span>
                   </div>
                   <div className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
-                    <Clock className="h-4 w-4 text-muted-foreground" /> {/* Icono de horario */}
+                    <Clock className="h-4 w-4 text-muted-foreground" />{' '}
+                    {/* Icono de horario */}
                     <span>{item.schedule}</span>
                   </div>
                 </div>
@@ -117,14 +125,18 @@ export default function PageTeacher () {
             </div>
 
             {/* Columna 2: Próximos Exámenes */}
-            <div className="space-y-4 overflow-y-auto pr-2 ">
+            <div className="space-y-4 overflow-y-auto pr-2">
               <h3 className="text-lg font-medium text-muted-foreground">
                 Examenes a tomar proximamente
               </h3>
-              {UPCOMING_EXAMS.map(exam => (
-                <div key={exam.id} className="rounded-lg border p-4 shadow-[inset_2px_2px_10px_rgba(0,0,0,0.5)]">
+              {UPCOMING_EXAMS.map((exam) => (
+                <div
+                  key={exam.id}
+                  className="rounded-lg border p-4 shadow-[inset_2px_2px_10px_rgba(0,0,0,0.5)]"
+                >
                   <div className="flex items-center gap-2 text-sm font-medium">
-                    <AlertCircle className="h-4 w-4 text-muted-foreground" /> {/* Icono de recordatorio */}
+                    <AlertCircle className="h-4 w-4 text-muted-foreground" />{' '}
+                    {/* Icono de recordatorio */}
                     <span>{exam.subject}</span>
                   </div>
                   <div className="mt-2 space-y-1 text-sm text-muted-foreground">
@@ -132,7 +144,8 @@ export default function PageTeacher () {
                     <p>Fecha: {exam.date}</p>
                     <p>Hora: {exam.time}</p>
                     <div className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-muted-foreground" /> {/* Icono de salón */}
+                      <MapPin className="h-4 w-4 text-muted-foreground" />{' '}
+                      {/* Icono de salón */}
                       <span>Salón: {exam.room}</span>
                     </div>
                   </div>
@@ -147,7 +160,7 @@ export default function PageTeacher () {
       </div>
 
       {/* Componente de eventos pendientes */}
-      <PendingEventsTeacher className="col-span-1" />
+      <PendingEventsTeacher className="col-span-1" notifications={[]} />
     </Section>
   )
 }

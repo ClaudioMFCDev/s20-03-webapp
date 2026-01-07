@@ -8,15 +8,15 @@ import { Card } from '#/src/app/components/ui/card'
 import { Input } from '../../ui/input'
 
 export default function CreateTask() {
-  const [file, setFile] = useState(null)
+  const [file, setFile] = useState<any>(null)
   const [dueDate, setDueDate] = useState('')
 
-  const handleFileChange = event => {
+  const handleFileChange = (event: any) => {
     const selectedFile = event.target.files[0]
     setFile(selectedFile)
   }
 
-  const handleDateChange = event => {
+  const handleDateChange = (event: any) => {
     setDueDate(event.target.value)
   }
 
@@ -26,13 +26,19 @@ export default function CreateTask() {
         {/* Input para el nombre de la tarea */}
         <div className="mt-3">
           <label htmlFor="taskName">Titulo de la Tarea</label>
-          <Input id="taskName" className="mt-4  shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]" />
+          <Input
+            id="taskName"
+            className="mt-4 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
+          />
         </div>
 
         {/* Input para la descripción */}
         <div className="mt-3">
           <label htmlFor="description">Descripción</label>
-          <Textarea id="description" className="mt-4  shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]" />
+          <Textarea
+            id="description"
+            className="mt-4 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
+          />
         </div>
 
         {/* Input para subir un archivo */}

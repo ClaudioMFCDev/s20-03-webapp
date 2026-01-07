@@ -63,12 +63,12 @@ export function DataTable<TData, TValue>({
   })
 
   return (
-    <div className="space-y-4 shadow-xl p-5 py-12">
+    <div className="space-y-4 p-5 py-12 shadow-xl">
       <div className="flex items-center">
         <Input
           placeholder="ej: no@country.com"
           value={(table.getColumn('email')?.getFilterValue() as string) ?? ''}
-          onChange={event =>
+          onChange={(event) =>
             table.getColumn('email')?.setFilterValue(event.target.value)
           }
           className="max-w-sm shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
@@ -77,11 +77,11 @@ export function DataTable<TData, TValue>({
         <DataTableViewOptions table={table} />
       </div>
       <div className="rounded-md border">
-        <Table className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'>
+        <Table className="shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
           <TableHeader>
-            {table.getHeaderGroups().map(headerGroup => (
+            {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map(header => {
+                {headerGroup.headers.map((header) => {
                   return (
                     <TableHead key={header.id}>
                       {header.isPlaceholder
@@ -98,13 +98,13 @@ export function DataTable<TData, TValue>({
           </TableHeader>
           <TableBody>
             {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map(row => (
+              table.getRowModel().rows.map((row) => (
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && 'selected'}
                   className=""
                 >
-                  {row.getVisibleCells().map(cell => (
+                  {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id} className="py-2">
                       {flexRender(
                         cell.column.columnDef.cell,

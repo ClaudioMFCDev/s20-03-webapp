@@ -35,13 +35,11 @@
   - Centraliza todos los datos académicos del alumno, incluyendo notas y evaluaciones, permitiendo un seguimiento detallado del rendimiento
   - Permite crear y calificar tareas y exámenes directamente en la plataforma, con resultados informados automáticamente en las boletas
   - Produce informes académicos listos para ser compartidos con las familias.
-    
-- **🔔 Notificaciones:** 
+- **🔔 Notificaciones:**
   - Permite a los usuarios recibir notificaciones sobre eventos importantes, cambios en el horario o actividades escolares
 - **🎁 Más:**
   - Diseño accesible e intuitivo, ClassRun está concebido para ser utilizado por cualquier miembro del personal educativo, sin necesidad de formación técnica previa.
   - Accesibilidad: Disponible en múltiples dispositivos para facilitar el acceso en cualquier momento y desde cualquier lugar.
-  
 
 ## **Video explicativo**
 

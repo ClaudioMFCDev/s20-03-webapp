@@ -10,7 +10,7 @@ import { Section } from '#/src/app/components/atoms/section'
 import CreateTask from '#/src/app/components/molecules/cards/create-Task'
 import { Button } from '#/src/app/components/ui/button'
 import { Card, CardContent, CardHeader } from '#/src/app/components/ui/card'
-import { Input } from '#/src/app/components/ui/input' 
+import { Input } from '#/src/app/components/ui/input'
 import { Textarea } from '#/src/app/components/ui/textarea'
 
 export default function TeacherPage() {
@@ -20,12 +20,12 @@ export default function TeacherPage() {
 
   const handleTaskToggle = () => {
     setIsTaskOpen(!isTaskOpen)
-    if (isMessageOpen) setIsMessageOpen(false) 
+    if (isMessageOpen) setIsMessageOpen(false)
   }
 
   const handleMessageToggle = () => {
     setIsMessageOpen(!isMessageOpen)
-    if (isTaskOpen) setIsTaskOpen(false) 
+    if (isTaskOpen) setIsTaskOpen(false)
   }
 
   const handleUpdateGrades = (data: typeof payments) => {
@@ -38,15 +38,11 @@ export default function TeacherPage() {
     <Section className="flex flex-col" component={'section'}>
       <h1 className="mb-5 text-2xl sm:text-3xl">Curso 5A - Matematica</h1>
       <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <div className="h-full w-full md:w-[400px] shadow-xl scroll-container">
-          <DataTable
-            columns={columns}
-            data={studentsData}
-          />
+        <div className="h-full w-full shadow-xl scroll-container md:w-[400px]">
+          <DataTable columns={columns} data={studentsData} />
         </div>
 
         <div className="flex w-full flex-col gap-5 md:w-[85%]">
-          
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -80,7 +76,6 @@ export default function TeacherPage() {
             </Card>
           </motion.div>
 
-          
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -104,23 +99,19 @@ export default function TeacherPage() {
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
-                    
                   >
                     <CardContent className="space-y-4">
-                      
                       <Input
                         type="email"
                         placeholder="Correo electrónico de Tutor/a - Alumno-a"
                         className="w-full shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                       />
 
-                      
                       <Textarea
                         placeholder="Escribe tu mensaje aquí..."
                         className="w-full shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                       />
 
-                      
                       <Button className="w-full">Enviar Mensaje</Button>
                     </CardContent>
                   </motion.div>
@@ -130,13 +121,14 @@ export default function TeacherPage() {
           </motion.div>
         </div>
 
-        <Card className="flex h-[765px] flex-col items-center gap-7 scroll-container overflow-y-auto p-5 py-10 shadow-xl">
+        <Card className="flex h-[765px] flex-col items-center gap-7 overflow-y-auto p-5 py-10 shadow-xl scroll-container">
           <h2>Recordatorios de Comision</h2>
           <Card className="w-[90%] p-5 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
             <CardHeader>Tarea: Trabajo Practico 2 </CardHeader>
             <CardContent className="flex flex-col gap-5">
-              <p className='text-sm'>
-                El Alumno Jose Martinez entrego la tarea de Matematica hace 2 horas
+              <p className="text-sm">
+                El Alumno Jose Martinez entrego la tarea de Matematica hace 2
+                horas
               </p>
               <p>Fecha de entrega: 21/5/2025</p>
             </CardContent>
@@ -145,8 +137,9 @@ export default function TeacherPage() {
           <Card className="w-[90%] p-5 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
             <CardHeader>Tarea: Trabajo Practico 2 </CardHeader>
             <CardContent className="flex flex-col gap-5">
-              <p className='text-sm'>
-                El Alumno Jose Martinez entrego la tarea de Matematica hace 2 minutos
+              <p className="text-sm">
+                El Alumno Jose Martinez entrego la tarea de Matematica hace 2
+                minutos
               </p>
               <p>Fecha de entrega: 21/5/2025</p>
             </CardContent>
@@ -155,16 +148,15 @@ export default function TeacherPage() {
           <Card className="w-[90%] p-5 shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]">
             <CardHeader>Tarea: Trabajo Practico 2 </CardHeader>
             <CardContent className="flex flex-col gap-5">
-              <p className='text-sm'>
-                El Alumno Jose Martinez entrego la tarea de Matematica hace 1 día
+              <p className="text-sm">
+                El Alumno Jose Martinez entrego la tarea de Matematica hace 1
+                día
               </p>
               <p>Fecha de entrega: 21/5/2025</p>
             </CardContent>
             <Button className="mb-5 ml-5">Borrar</Button>
           </Card>
-          
         </Card>
-        
       </section>
     </Section>
   )

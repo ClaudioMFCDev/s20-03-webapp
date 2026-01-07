@@ -23,7 +23,7 @@ export const ServicesSection = () => {
         {`¿Por qué elegir nuestra plataforma?`}
       </h3>
       <div className="flex w-full flex-col gap-12 md:flex-row">
-        {SERVICES.map(service => (
+        {SERVICES.map((service) => (
           <div
             key={service.id}
             className="flex flex-col items-center justify-center gap-4 text-center md:gap-6"

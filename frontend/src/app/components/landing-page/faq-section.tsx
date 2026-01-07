@@ -24,7 +24,7 @@ export const FaqSection = () => {
         </p>
       </div>
       <Accordion type="multiple" className="w-full">
-        {FAQs.map(faq => (
+        {FAQs.map((faq) => (
           <AccordionItem
             key={faq.id}
             value={`item-${faq.id}`}

@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -60,7 +59,6 @@
   }
 }
 
-
 @layer base {
   * {
     @apply border-border;
@@ -73,10 +71,10 @@
 
 /* Estilos personalizados para el scroll */
 .scroll-container {
-    scrollbar-width: thin; /* Para navegadores que soportan scrollbar-width */
-    scrollbar-color: #cbd5e0 transparent; /* Color del thumb (barra) y track (fondo) */
+  scrollbar-width: thin; /* Para navegadores que soportan scrollbar-width */
+  scrollbar-color: #cbd5e0 transparent; /* Color del thumb (barra) y track (fondo) */
 }
 
 .scroll-hidden::-webkit-scrollbar {
-    display: none; /* Para navegadores WebKit (Chrome, Safari, etc.) */
+  display: none; /* Para navegadores WebKit (Chrome, Safari, etc.) */
 }

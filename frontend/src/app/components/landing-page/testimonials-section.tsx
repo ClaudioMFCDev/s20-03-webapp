@@ -33,7 +33,7 @@ export const TestimonialsSection = () => {
         </p>
       </div>
       <div className="flex w-full flex-col gap-12 md:flex-row">
-        {TESTIMONIALS.map(testimony => (
+        {TESTIMONIALS.map((testimony) => (
           <div
             key={testimony.id}
             className="flex flex-col items-center justify-center gap-2 text-center"

@@ -44,9 +44,7 @@ export function DropDownUser({
 
   // --- 2. CÁLCULO DE INICIALES ---
   // Si el nombre es "Pedro Pascal", toma "PE". Si no hay nombre, "US" (User)
-  const initials = user.name 
-    ? user.name.substring(0, 2).toUpperCase() 
-    : 'US'
+  const initials = user.name ? user.name.substring(0, 2).toUpperCase() : 'US'
 
   return (
     <SidebarMenu>
@@ -60,7 +58,9 @@ export function DropDownUser({
               <Avatar className="h-8 w-8 rounded-lg">
                 <AvatarImage src={user.avatar} alt={user.name} />
                 {/* Usamos las iniciales calculadas */}
-                <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
+                <AvatarFallback className="rounded-lg">
+                  {initials}
+                </AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-semibold">{user.name}</span>
@@ -79,7 +79,9 @@ export function DropDownUser({
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="h-8 w-8 rounded-lg">
                   <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
+                  <AvatarFallback className="rounded-lg">
+                    {initials}
+                  </AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">{user.name}</span>
@@ -104,9 +106,12 @@ export function DropDownUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            
+
             {/* Botón de Logout conectado a nuestra función */}
-            <DropdownMenuItem onClick={handleLogout} className="text-red-600 focus:text-red-600">
+            <DropdownMenuItem
+              onClick={handleLogout}
+              className="text-red-600 focus:text-red-600"
+            >
               <LogOut className="mr-2 h-4 w-4" />
               Cerrar sesión
             </DropdownMenuItem>

@@ -54,9 +54,9 @@ export const SubjectCard = ({
           </Link>
         </CardTitle>
       </CardHeader>
-      <CardContent className="ml-1 flex flex-col pb-2 ">
+      <CardContent className="ml-1 flex flex-col pb-2">
         <span className="flex items-center gap-2 text-sm">
-          <Contact size={16} className="h-4 min-w-4 " />
+          <Contact size={16} className="h-4 min-w-4" />
           {teacher}
         </span>
         <span className="flex items-center gap-2 text-sm">
@@ -74,11 +74,11 @@ export const SubjectCard = ({
             Resumen de calificaciones
           </CollapsibleTrigger>
           <CollapsibleContent>
-            <div className="flex gap-2  ">
+            <div className="flex gap-2">
               {Array.from({ length: 6 })
-                .fill()
+                .fill(null)
                 .map((_, index) => index + 5)
-                .map(index => (
+                .map((index) => (
                   <div
                     key={index}
                     className="grid h-16 w-full place-content-center rounded-lg border bg-card text-card-foreground shadow-sm"

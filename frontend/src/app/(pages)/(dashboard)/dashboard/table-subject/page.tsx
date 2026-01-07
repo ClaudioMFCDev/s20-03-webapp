@@ -109,7 +109,6 @@ const initialData: User[] = [
     telefonoTutor: '987654321',
     correoTutor: 'carlos.gomez@example.com',
   },
-
 ]
 
 export default function PageAdmin() {
@@ -137,7 +136,11 @@ export default function PageAdmin() {
 
   const handleTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const type = e.target.value as 'profesor' | 'alumno'
-    setNewUser((previous) => ({ ...previous, type, materia: type === 'profesor' ? previous.materia : '' }))
+    setNewUser((previous) => ({
+      ...previous,
+      type,
+      materia: type === 'profesor' ? previous.materia : '',
+    }))
   }
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -173,11 +176,13 @@ export default function PageAdmin() {
 
   return (
     <div className="p-5">
-      <h1 className="text-2xl font-bold mb-5">
-        {comisionNombre ? `Comisión: ${comisionNombre}` : 'Seleccione una comisión'}
+      <h1 className="mb-5 text-2xl font-bold">
+        {comisionNombre
+          ? `Comisión: ${comisionNombre}`
+          : 'Seleccione una comisión'}
       </h1>
 
-      <div className="flex gap-4 mb-5 ">
+      <div className="mb-5 flex gap-4">
         <Input
           placeholder="Nombre de la comisión"
           value={comisionNombre}
@@ -197,13 +202,13 @@ export default function PageAdmin() {
             exit={{ opacity: 0, y: -20 }}
             className="mb-5 rounded-lg border p-5 shadow-xl"
           >
-            <form onSubmit={handleSubmit} className="space-y-4 ">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <Label>Tipo de Usuario</Label>
                 <select
                   value={newUser.type}
                   onChange={handleTypeChange}
-                  className="w-full rounded-md p-2 border-2"
+                  className="w-full rounded-md border-2 p-2"
                 >
                   <option value="profesor">Profesor</option>
                   <option value="alumno">Alumno</option>
@@ -216,7 +221,7 @@ export default function PageAdmin() {
                   value={newUser.nombreApellido}
                   onChange={handleInputChange}
                   required
-                  className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
+                  className="shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                 />
               </div>
               {newUser.type === 'profesor' && (
@@ -227,7 +232,7 @@ export default function PageAdmin() {
                     value={newUser.materia}
                     onChange={handleInputChange}
                     required
-                    className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
+                    className="shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                   />
                 </div>
               )}
@@ -238,7 +243,7 @@ export default function PageAdmin() {
                   value={newUser.dni}
                   onChange={handleInputChange}
                   required
-                  className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
+                  className="shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                 />
               </div>
               <div>
@@ -248,7 +253,7 @@ export default function PageAdmin() {
                   value={newUser.celular}
                   onChange={handleInputChange}
                   required
-                  className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
+                  className="shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                 />
               </div>
               {newUser.type === 'profesor' && (
@@ -259,7 +264,7 @@ export default function PageAdmin() {
                     value={newUser.correo}
                     onChange={handleInputChange}
                     required
-                    className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
+                    className="shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                   />
                 </div>
               )}
@@ -272,7 +277,7 @@ export default function PageAdmin() {
                       value={newUser.nombreTutor}
                       onChange={handleInputChange}
                       required
-                      className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
+                      className="shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                     />
                   </div>
                   <div>
@@ -282,7 +287,7 @@ export default function PageAdmin() {
                       value={newUser.dniTutor}
                       onChange={handleInputChange}
                       required
-                      className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
+                      className="shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                     />
                   </div>
                   <div>
@@ -292,7 +297,7 @@ export default function PageAdmin() {
                       value={newUser.telefonoTutor}
                       onChange={handleInputChange}
                       required
-                      className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
+                      className="shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                     />
                   </div>
                   <div>
@@ -302,7 +307,7 @@ export default function PageAdmin() {
                       value={newUser.correoTutor}
                       onChange={handleInputChange}
                       required
-                      className='shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]'
+                      className="shadow-[inset_2px_2px_7px_rgba(0,0,0,0.5)]"
                     />
                   </div>
                 </>
@@ -318,10 +323,15 @@ export default function PageAdmin() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 20 }}
-        className='scroll-container shadow-xl'
+        className="shadow-xl scroll-container"
       >
         <DataTable
-          columns={columns({ handleSave, handleDelete, editingIndex, setEditingIndex })}
+          columns={columns({
+            handleSave,
+            handleDelete,
+            editingIndex,
+            setEditingIndex,
+          })}
           data={data}
         />
       </motion.div>

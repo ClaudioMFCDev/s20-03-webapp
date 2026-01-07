@@ -99,7 +99,7 @@ export const FooterLanding = () => {
             />
           </Link>
           <ul className="mb-10 flex flex-col items-center justify-center gap-7 border-b border-gray-200 py-16 text-lg transition-all duration-500 md:flex-row md:gap-12">
-            {HEADER_LINKS.map(link => (
+            {HEADER_LINKS.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}

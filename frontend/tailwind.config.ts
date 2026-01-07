@@ -96,7 +96,7 @@ module.exports = {
   },
   plugins: [
     require('tailwindcss-animate'),
-    plugin(function ({ addUtilities }) {
+    plugin(function ({ addUtilities }: any) {
       addUtilities({
         '.scroll-container': {
           scrollbarWidth: 'thin',

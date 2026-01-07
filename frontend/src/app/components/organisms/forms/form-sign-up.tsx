@@ -28,7 +28,7 @@ export const FormSignUp = () => {
     },
   })
 
-  const onSubmit = form.handleSubmit(data => {
+  const onSubmit = form.handleSubmit((data) => {
     alert(JSON.stringify(data, undefined, 2))
   })
 

@@ -44,14 +44,14 @@ export function DataTableViewOptions<TData>({
         {table
           .getAllColumns()
           .filter(
-            column => column.accessorFn !== undefined && column.getCanHide()
+            (column) => column.accessorFn !== undefined && column.getCanHide()
           )
-          .map(column => {
+          .map((column) => {
             return (
               <DropdownMenuCheckboxItem
                 key={column.id}
                 checked={column.getIsVisible()}
-                onCheckedChange={value => column.toggleVisibility(!!value)}
+                onCheckedChange={(value) => column.toggleVisibility(!!value)}
               >
                 {COLUMNS_OPTIONS[column.id as keyof typeof COLUMNS_OPTIONS]}
               </DropdownMenuCheckboxItem>

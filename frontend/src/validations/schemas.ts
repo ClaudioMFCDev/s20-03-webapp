@@ -15,7 +15,7 @@ export const ProfileFormSchema = z
       message: 'El DNI debe tener al menos 3 caracteres',
     }),
     birthdate: z.string().refine(
-      value => {
+      (value) => {
         const date = new Date(value)
         return date.getFullYear() > 1900 && !Number.isNaN(date.getTime()) // Verifica que el año sea posterior a 1900 y que sea una fecha válida
       },
@@ -28,7 +28,7 @@ export const ProfileFormSchema = z
     }),
     security_emails: z.boolean().default(false),
   })
-  .refine(data => data.security_emails === true, {
+  .refine((data) => data.security_emails === true, {
     message: 'Debes aceptar los términos y condiciones',
     path: ['security_emails'],
   })
@@ -77,7 +77,7 @@ export const EditUserFormSchema = z.object({
     message: 'El DNI debe tener al menos 3 caracteres',
   }),
   birthdate: z.string().refine(
-    value => {
+    (value) => {
       const date = new Date(value)
       return date.getFullYear() > 1900 && !Number.isNaN(date.getTime()) // Verifica que el año sea posterior a 1900 y que sea una fecha válida
     },

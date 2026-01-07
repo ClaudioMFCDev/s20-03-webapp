@@ -63,7 +63,7 @@ export const FormEditUser = ({ user }: { user: User }) => {
     },
   })
 
-  const onSubmit = form.handleSubmit(data => {
+  const onSubmit = form.handleSubmit((data) => {
     alert(JSON.stringify(data, undefined, 2))
   })
 
@@ -178,7 +178,7 @@ export const FormEditUser = ({ user }: { user: User }) => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {roles.map(role => (
+                      {roles.map((role) => (
                         <SelectItem key={role.value} value={role.value}>
                           {role.label}
                         </SelectItem>

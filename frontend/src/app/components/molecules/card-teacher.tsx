@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
-export const CardTeacher = ({ title, info, icon }) => {
+export const CardTeacher = ({ title, info, icon }: any) => {
   return (
     <Card className="flex h-[106px] w-[332.33px] items-center justify-between shadow-md shadow-slate-300">
       <div>

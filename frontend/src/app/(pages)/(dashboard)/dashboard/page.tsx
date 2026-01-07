@@ -15,11 +15,13 @@ const dashboards = {
   teacher: <TeacherDashboard />,
   student: <StudentDashboard />,
   parent: <ParentDashboard />,
-  schoolAdmin: <AdminDashboard/>,
+  schoolAdmin: <AdminDashboard />,
 }
 
 export default function DashboardPage() {
-  const [roleFromMyDatabase, setRoleFromMyDatabase] = useState<Role | null>(null)
+  const [roleFromMyDatabase, setRoleFromMyDatabase] = useState<Role | null>(
+    null
+  )
   const router = useRouter()
 
   useEffect(() => {

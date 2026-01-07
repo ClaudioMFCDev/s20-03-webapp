@@ -38,7 +38,7 @@ export function NavGroup({ title, items }: NavGroupProps) {
     <SidebarGroup>
       <SidebarGroupLabel>{title}</SidebarGroupLabel>
       <SidebarMenu>
-        {items.map(item => {
+        {items.map((item) => {
           const key = `${item.title}-${item.url}`
 
           if (!item.items)
@@ -104,7 +104,7 @@ const SidebarMenuCollapsible = ({
         </CollapsibleTrigger>
         <CollapsibleContent className="CollapsibleContent">
           <SidebarMenuSub>
-            {item.items?.map(subItem => (
+            {item.items?.map((subItem) => (
               <SidebarMenuSubItem key={subItem.title}>
                 <SidebarMenuSubButton asChild>
                   <Link href={subItem.url} onClick={() => setOpenMobile(false)}>
@@ -145,7 +145,7 @@ const SidebarMenuCollapsedDropdown = ({
             {item.title} {item.badge ? `(${item.badge})` : ''}
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
-          {item.items?.map(sub => (
+          {item.items?.map((sub) => (
             <DropdownMenuItem key={`${sub.title}-${sub.url}`} asChild>
               <Link href={sub.url} className={`bg-secondary`}>
                 {sub.icon && <sub.icon />}

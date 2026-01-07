@@ -7,6 +7,12 @@
   ],
   "plugins": ["simple-import-sort"],
   "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error",
     "unicorn/no-array-callback-reference": "off",

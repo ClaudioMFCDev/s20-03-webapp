@@ -43,7 +43,7 @@ export const HeaderLanding = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center space-x-6 md:flex">
-          {HEADER_LINKS.map(link => {
+          {HEADER_LINKS.map((link) => {
             return (
               <Link
                 key={link.href}
@@ -73,7 +73,7 @@ export const HeaderLanding = () => {
         {isMobileMenuOpen && (
           <div className="absolute left-0 right-0 top-16 border-b bg-background md:hidden">
             <nav className="container flex flex-col space-y-4 p-4">
-              {HEADER_LINKS.map(link => {
+              {HEADER_LINKS.map((link) => {
                 return (
                   <Link
                     key={link.href}

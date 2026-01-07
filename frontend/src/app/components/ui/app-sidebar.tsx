@@ -26,9 +26,9 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   // 3. Efecto para leer del localStorage al entrar a la página
   useEffect(() => {
     const storedUser = localStorage.getItem('user')
-    
+
     // VALIDACIÓN EXTRA: Nos aseguramos que no sea la palabra "undefined" ni null
-    if (storedUser && storedUser !== "undefined" && storedUser !== "null") {
+    if (storedUser && storedUser !== 'undefined' && storedUser !== 'null') {
       try {
         const parsedUser = JSON.parse(storedUser)
         setUserData({
@@ -47,7 +47,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   }, [])
 
   return (
-    <Sidebar className='' collapsible="icon" variant="floating" {...props}>
+    <Sidebar className="" collapsible="icon" variant="floating" {...props}>
       <SidebarHeader className="flex">
         {open ? (
           <Image
