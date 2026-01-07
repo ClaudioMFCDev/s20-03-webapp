@@ -6,16 +6,20 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import EXAMS_JSON from '@/data/exams.json'
 import { type Exam } from '@/types/exams'
 
+interface PageProps {
+  params: Promise<{id: string}>
+}
+
+
 async function getData(): Promise<Exam[]> {
   return JSON.parse(JSON.stringify(EXAMS_JSON))
 }
 
-export default async function SubjectPage({
-  params,
-}: {
-  params: { id: string }
-}) {
-  const exams = await getData()
+export default async function SubjectPage({ params }: PageProps) {
+
+  const {id} = await params;
+
+  const exams = await getData();
 
   return (
     <Section component="section" className="grid grid-cols-3 gap-4 ">
@@ -40,7 +44,7 @@ export default async function SubjectPage({
 
       <div className="col-span-1 flex flex-col gap-4 ">
         <SubjectCard
-          id={params.id}
+          id={id}
           title="Matemáticas III"
           teacher="Augusta Ada Byron"
           location="Aula B1-59"
