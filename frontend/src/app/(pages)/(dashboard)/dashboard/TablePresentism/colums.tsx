@@ -20,7 +20,7 @@ export const columns: ColumnDef<Payment>[]  = [
           failed: 'destructive',
         }[status] ?? ('default' as any)
 
-      return <Badge variant={variant}>{row.original.alumnName}</Badge>
+      return <Badge variant={variant as any}>{row.original.alumnName}</Badge>
     },
   },
 
