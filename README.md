@@ -83,7 +83,7 @@ MONGO_URI=tu_string_de_conexion_atlas_o_local
 JWT_SECRET=palabra_secreta_para_desarrollo
 ```
 
-### Inicializa la base de datos (Semilla de datos) y corre el servidor:
+### Inicializa la base de datos (Semilla de datos - seed) y corre el servidor:
 
 #### Carga usuarios de prueba (Admin, Profesores y Alumnos)
 
