@@ -5,13 +5,12 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
-// import axiosInstance from '@/lib/axiosInstance'; // Si no lo usas aún, puedes dejarlo comentado o borrarlo
 
 import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
-  FormDescription,
+  // FormDescription, // Lo dejaste comentado, así que lo dejo igual
   FormField,
   FormItem,
   FormLabel,
@@ -57,8 +56,10 @@ export const FormSignIn = () => {
     axios.defaults.withCredentials = true
 
     try {
+      // 👇 AQUÍ ESTÁ EL CAMBIO IMPORTANTE:
+      // Usamos comillas invertidas (backticks) para insertar la variable de entorno
       const response = await axios.post(
-        'http://localhost:5000/auth/login',
+        `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
         data
       )
 
@@ -75,6 +76,7 @@ export const FormSignIn = () => {
       router.push('/dashboard')
     } catch (error) {
       console.error('Error en el login:', error)
+      // Opcional: Podrías mostrar un toast o mensaje de error aquí
     }
   })
 
@@ -140,11 +142,6 @@ export const FormSignIn = () => {
               <FormControl>
                 <Input type="password" placeholder="********" {...field} />
               </FormControl>
-              {/* Comenté la descripción para limpiar la UI, descomenta si la quieres
-              <FormDescription>
-                La contraseña debe tener al menos 6 caracteres.
-              </FormDescription> 
-              */}
               <FormMessage />
             </FormItem>
           )}

@@ -1,14 +1,14 @@
 // Configurations and imports
-const config = require('./config');
-const express = require('express');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const authMiddleware = require('./middleware/authMiddleware');
-const roleMiddleware = require('./middleware/roleMiddleware');
-const authRouter = require('./routes/authRouter');
-const privateRouter = require('./routes/privateRouter');
-const userRouter = require('./routes/userRouter');
-const dbConnection = require('./db/connection');
+const config = require("./config");
+const express = require("express");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
+const authMiddleware = require("./middleware/authMiddleware");
+const roleMiddleware = require("./middleware/roleMiddleware");
+const authRouter = require("./routes/authRouter");
+const privateRouter = require("./routes/privateRouter");
+const userRouter = require("./routes/userRouter");
+const dbConnection = require("./db/connection");
 
 // Connect to the database
 dbConnection();
@@ -16,38 +16,46 @@ dbConnection();
 // Create the express app
 const app = express();
 
-// Middlewares
-// CORS configuration to allow requests from frontend
+// --- CONFIGURACIÓN DE CORS ---
+const allowedOrigins = [
+  "http://localhost:3000",             // Frontend Local
+  "https://classrun.vercel.app",       // Producción
+  // Agrega aquí otras URLs si es necesario
+];
+
 const corsOptions = {
-  origin: "*",
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, // Allow credentials (cookies, etc.)
+  origin: function (origin, callback) {
+    // permitir solicitudes sin origen (como apps móviles o curl)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      return callback(null, true);
+    } else {
+      var msg = "The CORS policy for this site does not allow access from the specified Origin.";
+      return callback(new Error(msg), false);
+    }
+  },
+  credentials: true, // Importante para las cookies/tokens
 };
 
-app.use(cors(corsOptions));
+// Aplicamos CORS una sola vez usando la configuración definida arriba
+app.use(cors(corsOptions)); 
+
+// Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 // Main routes
-app.use('/auth', authRouter);
-app.use('/private', authMiddleware, roleMiddleware, privateRouter);
-app.use('/api/users', userRouter);
+app.use("/auth", authRouter);
+app.use("/private", authMiddleware, roleMiddleware, privateRouter);
+app.use("/api/users", userRouter);
 
-// Opción para manejar las solicitudes preflight
-// app.options('*', (req, res) => {
-//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-//     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');  // Asegúrate que coincida con tu frontend
-//     res.send();
-//   });
-  
 // Start the server
-
 const PORT = process.env.PORT || 5000;
 
-app.listen( PORT, () => {
-    console.log(`Server corriendo en el puerto {PORT}`);
+app.listen(PORT, () => {
+  // Corregí un pequeño error aquí: faltaba el signo $ para que se vea el número
+  console.log(`Server corriendo en el puerto ${PORT}`); 
 });

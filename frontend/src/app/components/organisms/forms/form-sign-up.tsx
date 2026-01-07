@@ -34,8 +34,8 @@ export const FormSignUp = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={onSubmit} className="w-full max-w-md space-y-6">
-        <div className="flex gap-6">
+      <form onSubmit={onSubmit} className="w-full max-w-md space-y-6 text-gray-950">
+        <div className="flex gap-6 text-gray-950">
           <FormField
             control={form.control}
             name="name"
@@ -92,7 +92,7 @@ export const FormSignUp = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full ">
           Registrarse
         </Button>
       </form>
