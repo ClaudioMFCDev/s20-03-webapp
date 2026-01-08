@@ -30,10 +30,14 @@ const corsOptions = {
     
     if (allowedOrigins.indexOf(origin) !== -1) {
       return callback(null, true);
-    } else {
-      var msg = "The CORS policy for this site does not allow access from the specified Origin.";
-      return callback(new Error(msg), false);
     }
+
+    if (origin.endsWith('.vercel.app')) {
+      return callback(null, true);
+    }
+
+    var msg = "The CORS policy for this site does not allow access from the specified Origin.";
+    return callback(new Error(msg), false);
   },
   credentials: true, // Importante para las cookies/tokens
 };
