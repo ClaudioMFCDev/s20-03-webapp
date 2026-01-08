@@ -17,7 +17,10 @@ export const TeacherDashboard = () => {
     const fetchTeacherData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/private/teacher/teacherData`
+          `${process.env.NEXT_PUBLIC_API_URL}/private/teacher/teacherData`,
+          {
+            withCredentials: true,
+          }
         )
         setSubjectsTeacher(response.data.subjects)
         setHomeworks(
