@@ -35,10 +35,10 @@ export const FormSignUp = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={onSubmit} className="w-full max-w-md space-y-6 text-gray-950">
+      <form onSubmit={onSubmit} className="w-full max-w-md space-y-2 text-gray-950">
         
-        {/* 🚧 AVISO DE REGISTRO DESHABILITADO 🚧 */}
-        <div className="rounded-md bg-amber-50 p-4 border border-amber-200">
+        {/*  AVISO DE REGISTRO DESHABILITADO  */}
+        <div className="rounded-md bg-amber-50 p-2 border border-amber-200">
           <div className="flex">
             <div className="flex-shrink-0">
               {/* Icono de Alerta SVG */}
