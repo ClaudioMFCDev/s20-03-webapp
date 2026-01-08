@@ -16,6 +16,8 @@ dbConnection();
 // Create the express app
 const app = express();
 
+app.set('trust proxy', 1);
+
 // --- CONFIGURACIÓN DE CORS ---
 const allowedOrigins = [
   "http://localhost:3000",             // Frontend Local
