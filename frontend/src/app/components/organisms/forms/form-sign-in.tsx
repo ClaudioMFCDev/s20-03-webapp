@@ -1,11 +1,12 @@
 'use client'
 
+import { useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
-
+import { Loader2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -29,6 +30,8 @@ const SignInFormSchema = z.object({
 })
 
 export const FormSignIn = () => {
+  const [isLoading, setIsLoading] = useState(false)
+
   const form = useForm<z.infer<typeof SignInFormSchema>>({
     resolver: zodResolver(SignInFormSchema),
     defaultValues: {
@@ -53,10 +56,11 @@ export const FormSignIn = () => {
   // --------------------------------------------------------
 
   const onSubmit = form.handleSubmit(async (data) => {
+    setIsLoading(true)
+
     axios.defaults.withCredentials = true
 
     try {
-      // 👇 AQUÍ ESTÁ EL CAMBIO IMPORTANTE:
       // Usamos comillas invertidas (backticks) para insertar la variable de entorno
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/auth/login`,
@@ -77,6 +81,7 @@ export const FormSignIn = () => {
     } catch (error) {
       console.error('Error en el login:', error)
       // Opcional: Podrías mostrar un toast o mensaje de error aquí
+      setIsLoading(false)
     }
   })
 
@@ -146,8 +151,20 @@ export const FormSignIn = () => {
             </FormItem>
           )}
         />
-        <Button type="submit" className="w-full">
-          Iniciar sesión
+        <Button
+          type="submit"
+          className="w-full"
+          disabled={isLoading} // Deshabilita el botón para que no hagan doble click
+        >
+          {isLoading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />{' '}
+              {/*  El icono girando */}
+              Iniciando sesión...
+            </>
+          ) : (
+            'Ingresar'
+          )}
         </Button>
       </form>
     </Form>
