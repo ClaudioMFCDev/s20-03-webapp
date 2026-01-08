@@ -16,6 +16,7 @@ export const TeacherDashboard = () => {
   useEffect(() => {
     const fetchTeacherData = async () => {
       try {
+        setLoading(true)
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_API_URL}/private/teacher/teacherData`,
           {
@@ -31,29 +32,19 @@ export const TeacherDashboard = () => {
             (subject: any) => subject.notifications
           )
         )
-        setLoading(false)
 
-        localStorage.setItem('teacherData', JSON.stringify(response.data))
       } catch (error: any) {
+        console.error(error) // Es bueno loguear el error real
         setError('Hubo un error al cargar los datos.')
-        setLoading(false)
+      } finally {
+        setLoading(false) // Esto se ejecuta siempre, haya error o no
       }
     }
 
-    const savedData = localStorage.getItem('teacherData')
-    if (savedData) {
-      const data = JSON.parse(savedData)
-      setSubjectsTeacher(data.subjects)
-      setHomeworks(data.subjects.flatMap((subject: any) => subject.homeworks))
-      setNotifications(
-        data.subjects.flatMap((subject: any) => subject.notifications)
-      )
-      setLoading(false)
-    } else {
-      fetchTeacherData()
-    }
+    fetchTeacherData()
   }, [])
 
+  
   return (
     <Section className="mb-20 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       <div className="flex flex-col gap-4 sm:col-span-1 lg:col-span-2">
