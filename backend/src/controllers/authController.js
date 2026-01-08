@@ -35,7 +35,13 @@ const authController = {
         lastname: user.lastname,
         role: user.role,
       };
-      res.cookie("token", token, { httpOnly: true });
+      // Configuración forzada para que funcione YA en Render
+      res.cookie('token', token, {
+          httpOnly: true,
+          secure: true,      // ¡OJO! Esto requiere HTTPS (Render lo tiene)
+          sameSite: 'none',  // ¡OJO! Esto permite que viaje entre Vercel y Render
+          maxAge: 24 * 60 * 60 * 1000
+      });
       res.status(responses.common.success.status).json({
         message: "Login exitoso",
         token: token,
