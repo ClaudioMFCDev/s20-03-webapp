@@ -7,10 +7,19 @@ const homeworkModel = require("../db/models/homeworkModel");
 const teacherController = {
   getSubjectsHomeworksAndNotif: async (req, res) => {
     try {
+      // LOGS DE DEPURACIÓN
+        console.log("--- INICIO DEBUG TEACHER DATA ---");
+        console.log("1. ID del Usuario en el Token:", req.user.id);
+        console.log("2. Tipo de dato del ID:", typeof req.user.id);
+
       // Paso 1: Obtener los subjects (materias) a cargo del profesor autenticado
-      const subjects = await subjectModel
-        .find({ teacherId: { $exists: true, $eq: req.user.id } })
-        .exec();
+      const subjects = await subjectModel.find({ teacherId: req.user.id });
+
+      console.log("3. Materias encontradas:", subjects.length);
+        if (subjects.length > 0) {
+            console.log("   -> ID en la primera materia:", subjects[0].teacherId);
+        }
+        console.log("--- FIN DEBUG ---");
 
       // --- CAMBIO AQUÍ: Si no hay materias, devolvemos array vacío con status 200 (OK) ---
       if (subjects.length === 0) {
