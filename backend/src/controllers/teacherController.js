@@ -9,14 +9,14 @@ const teacherController = {
     try {
       // Paso 1: Obtener los subjects (materias) a cargo del profesor autenticado
       const subjects = await subjectModel
-        .find({ teacherId: { $exists: true, $eq: req.user.id} })
+        .find({ teacherId: { $exists: true, $eq: req.user.id } })
         .exec();
 
+      // --- CAMBIO AQUÍ: Si no hay materias, devolvemos array vacío con status 200 (OK) ---
       if (subjects.length === 0) {
-        return res
-          .status(404)
-          .json({ message: "No tienes materias asignadas." });
+        return res.status(200).json({ subjects: [] });
       }
+      // ----------------------------------------------------------------------------------
 
       // Paso 2: Buscar las tareas relacionadas con las materias del profesor
       const homeworks = await homeworkModel
@@ -30,12 +30,11 @@ const teacherController = {
         .find({
           subjectId: { $in: subjects.map((subject) => subject._id) },
         })
-        .populate("studentId", "name lastname") // Poblar el estudiante para obtener el nombre y apellido
+        .populate("studentId", "name lastname")
         .exec();
 
       // Paso 4: Formatear la respuesta
       const result = subjects.map((subject) => {
-        // Filtrar las tareas y notificaciones relacionadas con la materia
         const subjectHomeworks = homeworks.filter(
           (hw) => hw.subjectId.toString() === subject._id.toString()
         );
@@ -53,18 +52,21 @@ const teacherController = {
                 description: hw.description,
                 endDate: hw.endDate,
               }))
-            : [], // Asegurarse de que esté vacío si no tiene tareas
+            : [],
           notifications: subjectNotifications.length
             ? subjectNotifications.map((notification) => ({
                 title: notification.title,
                 message: notification.message,
-                studentName: `${notification.studentId.name} ${notification.studentId.lastname}`,
+                studentName: notification.studentId 
+                  ? `${notification.studentId.name} ${notification.studentId.lastname}`
+                  : "Estudiante desconocido", // Protección por si falla el populate
                 subjectTitle: subject.title,
               }))
-            : [], // Asegurarse de que esté vacío si no tiene notificaciones
+            : [],
         };
       });
-      console.log(subjects);
+
+      console.log("Materias encontradas:", subjects.length);
       res.status(200).json({ subjects: result });
     } catch (err) {
       console.error("Error en la consulta:", err);
@@ -75,37 +77,7 @@ const teacherController = {
   newNotification: async (req, res) => {
     try {
       const { title, subjectId, studentId, message } = req.body;
-      const teacherId = req.user.id; // Se asume que el teacher está autenticado
-
-      if (!subjectId || !studentId || !message || !title) {
-        return res
-          .status(400)
-          .json({ message: "Todos los campos son requeridos." });
-      }
-
-      const newNotification = new notificationModel({
-        title,
-        subjectId,
-        teacherId,
-        studentId,
-        message,
-      });
-
-      await newNotification.save();
-
-      res.status(201).json({
-        message: "Notificación creada exitosamente.",
-        notification: newNotification,
-      });
-    } catch (error) {
-      console.error("Error al crear la notificación:", error);
-      res.status(500).json({ message: "Error interno del servidor" });
-    }
-  },
-  newNotification: async (req, res) => {
-    try {
-      const { title, subjectId, studentId, message } = req.body;
-      const teacherId = req.user.id; // Se asume que el teacher está autenticado
+      const teacherId = req.user.id;
 
       if (!subjectId || !studentId || !message || !title) {
         return res

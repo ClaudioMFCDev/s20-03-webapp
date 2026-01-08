@@ -4,10 +4,10 @@ const managerRouter = require('./private/managerRouter');
 const teacherRouter = require('./private/teacherRouter');
 const studentRouter = require('./private/studentRouter');
 const parentRouter = require('./private/parentRouter');
-const roleMiddleware = require('../middleware/roleMiddleware');
+//const roleMiddleware = require('../middleware/roleMiddleware');
 
 // Use roleMiddleware to prevent unauthorized access
-privateRouter.use(roleMiddleware);
+//privateRouter.use(roleMiddleware);
 
 // Routes
 // schoolAdmin route
