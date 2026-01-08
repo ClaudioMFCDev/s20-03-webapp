@@ -3,7 +3,7 @@
 import { Menu } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { HEADER_LINKS } from '@/lib/landing-constans'
@@ -33,6 +33,22 @@ const AuthButtons = () => {
 
 export const HeaderLanding = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  useEffect(() => {
+    const wakeUpServer = async () => {
+      try {
+        // Hacemos un fetch simple a la raíz o a una ruta pública
+        // No importa si devuelve 404, el intento de conexión despierta al servidor.
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/`)
+        console.log('Backend despierto y listo ☕')
+      } catch (error) {
+        // Ignoramos errores silenciosamente, solo queremos despertar al servidor
+        console.log('Intentando despertar al backend...')
+      }
+    }
+
+    wakeUpServer()
+  }, [])  
 
   return (
     <header className="sticky top-0 border-b bg-background">

@@ -1,7 +1,5 @@
 import Image from 'next/image'
 
-import { Button } from '@/components/ui/button'
-
 import { SectionLanding } from './section-landing'
 
 /**
@@ -26,12 +24,7 @@ export const HeroSection = () => {
         <p className="text-md md:text-lg">
           {`Nuestra plataforma facilita el seguimiento académico, fomenta la comunicación efectiva y optimiza la organización escolar.`}
         </p>
-        <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <Button variant="outline" size="lg">
-            Solicitar demo
-          </Button>
-          <Button size="lg">¡Registrarse!</Button>
-        </div>
+
       </div>
 
       <div className="aspect-video w-full overflow-hidden rounded-lg">
