@@ -1,5 +1,24 @@
 <div align="center">
   <img src="./assets/banner.png" alt="Banner">
+</div>
+
+## Descripción del proyecto
+
+ClassRun es una aplicación web para la gestión escolar que permite administrar alumnos, docentes, materias, asistencias, exámenes y comunicación interna en una institución educativa.
+
+### Mi rol
+Backend Developer
+
+### Responsabilidades
+- Desarrollo de la API REST
+- Autenticación y autorización con JWT
+- Modelado de base de datos
+- Lógica de negocio y control de roles
+
+### Stack principal
+Node.js · TypeScript · MongoDB · Express · JWT
+
+  
   <details align="left">
     <summary>Tabla de contenidos</summary>
     <ul>
@@ -23,24 +42,15 @@
     </ul>
 </details>
 </div>
-<h3 align="center">Equipo <strong>s20-03-webapp</strong></h3>
 
-**ClassRun** es una plataforma digital intuitiva y eficiente que transforma la gestión educativa al facilitar el seguimiento del rendimiento escolar. Diseñada para empoderar a los educadores, ClassRun ofrece herramientas que optimizan la gestión académica, mejoran la experiencia escolar y fortalecen la comunicación entre todos los miembros de la comunidad educativa. Con un enfoque en la simplicidad y la accesibilidad, ClassRun se posiciona como una solución integral que busca inspirar el aprendizaje y fomentar un entorno colaborativo y comprometido con el éxito académico.
+## Características
 
-## **Características**
-
-- **👁‍🗨 Gestionar usuarios:**
-  - Facilita la admisión y el registro de estudiantes a través de un sistema centralizado que automatiza flujos de trabajo y permite un seguimiento eficaz de las solicitudes.
-- **✍🏻 Seguimiento y Evaluación Educativa:**
-  - Centraliza todos los datos académicos del alumno, incluyendo notas y evaluaciones, permitiendo un seguimiento detallado del rendimiento
-  - Permite crear y calificar tareas y exámenes directamente en la plataforma, con resultados informados automáticamente en las boletas
-  - Produce informes académicos listos para ser compartidos con las familias.
-    
-- **🔔 Notificaciones:** 
-  - Permite a los usuarios recibir notificaciones sobre eventos importantes, cambios en el horario o actividades escolares
-- **🎁 Más:**
-  - Diseño accesible e intuitivo, ClassRun está concebido para ser utilizado por cualquier miembro del personal educativo, sin necesidad de formación técnica previa.
-  - Accesibilidad: Disponible en múltiples dispositivos para facilitar el acceso en cualquier momento y desde cualquier lugar.
+- Gestión de usuarios (estudiantes, docentes, administradores)
+- Autenticación y autorización mediante JWT
+- Gestión de materias, cursadas y asistencias
+- Registro de exámenes y calificaciones
+- Paneles según rol de usuario
+- Sistema de notificaciones internas
   
 
 ## **Video explicativo**
@@ -49,6 +59,8 @@ Descubre las principales funcionalidades de <em>ClassRun</em> en este vídeo: <b
 [![Ver en Vídeo](https://img.shields.io/badge/Ver-Vídeo-white?style=for-the-badge&logo=github)](./wiki/media/video-explicativo.mp4)
 
 ## **Demo**
+
+La aplicación utiliza autenticación JWT. Al iniciar sesión, se genera un token que permite acceder a los endpoints protegidos según el rol del usuario.
 
 ¡Puedes probar la aplicación sin necesidad de registrarte! 
 En la pantalla de inicio de sesión hemos habilitado botones de **Acceso Rápido** para roles de prueba, o puedes usar las siguientes credenciales:
@@ -200,6 +212,10 @@ Estamos comprometidos con el desarrollo continuo de **ClassRun**. Algunas de las
   <h2 style="font-size: 48px;">Equipo</h2>
   <img src="./frontend/public/logo-negative.svg" width="600px" alt="Logo">
 </div>
+
+## Mi contribución en el proyecto
+
+Participé como **Backend Developer**, trabajando principalmente en la API, autenticación con JWT, manejo de roles y lógica de negocio.
 
 <h3 align="center"><strong>Integrantes principales</strong></h3>
 
